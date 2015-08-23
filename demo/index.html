@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>fiveStars, star rating jquery plugin</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="../src/jquery.fivestars.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/fivestars.css">
+    </head>
+    <body>
+        <!-- example -->
+        <span class="fs-rating-label">rating:&nbsp;</span><div class="my-rating fs-stars"></div>
+        <!-- another example -->
+        <div class="big-rating"></div>
+
+        <script>
+            $(function() {
+                $(".my-rating").fivestars({
+                    totalStars: 5,
+                    starSize: 25, // pixels
+                    emptyColor: 'lightgray',
+                    hoverColor: 'salmon',
+                    activeColor: 'cornflowerblue',
+                    initialRating: 3,
+                    callback: function(currentRating){
+                        // make a server call here
+                    }
+                });
+
+                $(".big-rating").fivestars({
+                    totalStars: 5,
+                    starSize: 70, // pixels
+                    emptyColor: '#DDDDDD',
+                    hoverColor: '#AAAAAA',
+                    activeColor: 'khaki',
+                    callback: function(currentRating){
+                        // make a server call here
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
