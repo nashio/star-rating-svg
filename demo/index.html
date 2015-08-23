@@ -7,10 +7,12 @@
         <link rel="stylesheet" type="text/css" href="css/fivestars.css">
     </head>
     <body>
-        <!-- example -->
+        <!-- example with label -->
         <span class="fs-rating-label">rating:&nbsp;</span><div class="my-rating fs-stars"></div>
-        <!-- another example -->
+        <!-- example with custom gradient color -->
         <div class="big-rating"></div>
+        <!-- bigger size example -->
+        <div class="bigger-rating"></div>
 
         <script>
             $(function() {
@@ -21,6 +23,7 @@
                     hoverColor: 'salmon',
                     activeColor: 'cornflowerblue',
                     initialRating: 3,
+                    //strokeWidth: 5,
                     callback: function(currentRating){
                         // make a server call here
                     }
@@ -28,13 +31,25 @@
 
                 $(".big-rating").fivestars({
                     totalStars: 5,
-                    starSize: 70, // pixels
+                    starSize: 60, // pixels
                     emptyColor: '#DDDDDD',
                     hoverColor: '#AAAAAA',
                     activeColor: 'khaki',
+                    initialRating: 1,
+                    //strokeWidth: 15,
+                    starGradient: {
+                        start: '#AABBCC',
+                        end: '#002233'
+                    },
                     callback: function(currentRating){
                         // make a server call here
                     }
+                });
+
+                $(".bigger-rating").fivestars({
+                    starSize: 90,
+                    strokeWidth: 0,
+                    initialRating: 2
                 });
             });
         </script>

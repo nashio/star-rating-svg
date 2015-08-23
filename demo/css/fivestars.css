@@ -22,11 +22,12 @@
     height: 100% ;
 }
 
-.fs-star:hover .fs-star-svg path {
+.fs-star:hover .fs-star-svg polygon {
 }
 
-.fs-star-svg path {
-    fill: gray;
+.fs-star-svg polygon {
+    stroke: #000;
+    stroke-linejoin: round;
 }
 
 /* un-used */
