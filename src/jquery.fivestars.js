@@ -13,29 +13,39 @@
         emptyColor: 'lightgray',
         hoverColor: 'orange',
         activeColor: 'yellow',
-        useGradient: true, // TODO:
-        // TODO: get rating from data-attribute
+        useGradient: true,
         starGradient: {
             start: '#FEF7CD',
             end: '#FF9511'
         },
         strokeWidth: 0,
+        strokeColor: 'black',
         initialRating: 0,
         starSize: 50
     };
 
     // The actual plugin constructor
     var Plugin = function( element, options ) {
+        var _rating;
+
         this.element = element;
         this.settings = $.extend( {}, defaults, options );
         this.$el = $(element);
 
+        // grab rating if defined on the element
+        _rating = this.$el.data('rating') || this.settings.initialRating;
+        this._state = {
+            // round to the nearest half
+            rating: (Math.round( _rating * 2 ) / 2).toFixed(1)
+        };
         // create unique id for stars
         this._uid = Math.floor( Math.random() * 999 );
 
-        this._state = {
-            rating: this.settings.initialRating
-        };
+        // override gradient if not used
+        if( !options.starGradient && !this.settings.useGradient ){
+            this.settings.starGradient.start = this.settings.starGradient.end = this.settings.activeColor;
+        }
+
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
@@ -75,14 +85,16 @@
 
         getIndex: function(e){
             var $target = $(e.currentTarget);
-            var side = $(e.target).data('side');
-            // get half or whole star
+            var width = $target.width();
+            var side = ( e.offsetX < width / 2 ) ? 'left' : 'right';
+
+            // get index for half or whole star
             var index = $target.index() - ((side === 'left') ? 0.5 : 0);
             return index;
         },
 
         initRating: function(){
-            this.paintStars(this.settings.initialRating - 1, 'active');
+            this.paintStars(this._state.rating - 1, 'active');
         },
 
         paintStars: function(endIndex, stateClass){
@@ -111,7 +123,7 @@
                 this.getLinearGradient(this._uid + '_SVGID_1_', this.settings.emptyColor, this.settings.emptyColor) +
                 this.getLinearGradient(this._uid + '_SVGID_2_', this.settings.hoverColor, this.settings.hoverColor) +
                 this.getLinearGradient(this._uid + '_SVGID_3_', this.settings.starGradient.start, this.settings.starGradient.end) +
-                '<polygon data-side="left" class="svg-empty-' + this._uid + '"  points="146.7,17.6 64,23.9 127.1,77.7 107.5,158.3 178.2,114.9 178.3,-59"/><polygon data-side="right" class="svg-empty-' + this._uid + '" points="292.6,24.1 209.9,17.7 178.3,-59 178.2,114.9 248.8,158.4 229.4,77.8  "/>' +
+                '<polygon data-side="left" class="svg-empty-' + this._uid + '"  points="146.7,17.6 64,23.9 127.1,77.7 107.5,158.3 178.2,114.9 178.3,-59" style="stroke-dasharray: 332 170 0 0; stroke: ' + this.settings.strokeColor + '"/><polygon data-side="right" class="svg-empty-' + this._uid + '" points="292.6,24.1 209.9,17.7 178.3,-59 178.2,114.9 248.8,158.4 229.4,77.8" style="stroke-dasharray: 166 172 222 0; stroke: ' + this.settings.strokeColor + '"/>' +
                 '</svg></div>';
 // -249.3
             // inject svg markup

@@ -9,10 +9,12 @@
     <body>
         <!-- example with label -->
         <span class="fs-rating-label">rating:&nbsp;</span><div class="my-rating fs-stars"></div>
+
         <!-- example with custom gradient color -->
         <div class="big-rating"></div>
-        <!-- bigger size example -->
-        <div class="bigger-rating"></div>
+
+        <!-- example using rating defined inline -->
+        <div class="bigger-rating" data-rating="3.3"></div>
 
         <script>
             $(function() {
@@ -22,8 +24,8 @@
                     emptyColor: 'lightgray',
                     hoverColor: 'salmon',
                     activeColor: 'cornflowerblue',
-                    initialRating: 3,
-                    //strokeWidth: 5,
+                    strokeWidth: 2,
+                    initialRating: 4,
                     callback: function(currentRating){
                         // make a server call here
                     }
@@ -34,13 +36,9 @@
                     starSize: 60, // pixels
                     emptyColor: '#DDDDDD',
                     hoverColor: '#AAAAAA',
-                    activeColor: 'khaki',
-                    initialRating: 1,
-                    //strokeWidth: 15,
-                    starGradient: {
-                        start: '#AABBCC',
-                        end: '#002233'
-                    },
+                    activeColor: 'royalBlue',
+                    initialRating: 3.5,
+                    useGradient: false,
                     callback: function(currentRating){
                         // make a server call here
                     }
@@ -48,8 +46,13 @@
 
                 $(".bigger-rating").fivestars({
                     starSize: 90,
-                    strokeWidth: 0,
-                    initialRating: 2
+                    strokeWidth: 3,
+                    strokeColor: 'darkgray',
+                    initialRating: 2,
+                    starGradient: {
+                        start: '#AABBCC',
+                        end: '#002233'
+                    },
                 });
             });
         </script>
