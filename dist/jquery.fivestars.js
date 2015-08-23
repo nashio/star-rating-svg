@@ -95,9 +95,10 @@
             var $target = $(e.currentTarget);
             var width = $target.width();
             var side = ( e.offsetX < width / 2 ) ? 'left' : 'right';
-
             // get index for half or whole star
             var index = $target.index() - ((side === 'left') ? 0.5 : 0);
+            // pointer is way to the left, rating should be none
+            index = ( index < 0 && (e.offsetX < width / 5) ) ? -1 : index;
             return index;
         },
 
