@@ -96,13 +96,20 @@
         paintStars: function(endIndex, stateClass){
             var $polygonLeft;
             var $polygonRight;
-            var newClass;
+            var leftClass;
+            var rightClass;
 
             $.each(this.$star, function(index, star){
                 $polygonLeft = $(star).find('polygon[data-side="left"]');
                 $polygonRight = $(star).find('polygon[data-side="right"]');
-                newClass = (index <= endIndex) ? stateClass : 'empty';
-                $polygonLeft.attr('class', 'svg-'  + newClass + '-' + this._uid);
+                leftClass = rightClass = (index <= endIndex) ? stateClass : 'empty';
+
+                // has another half rating, add half star
+                leftClass = ( index - endIndex === 0.5 ) ? stateClass : leftClass;
+
+                $polygonLeft.attr('class', 'svg-'  + leftClass + '-' + this._uid);
+                $polygonRight.attr('class', 'svg-'  + rightClass + '-' + this._uid);
+
             }.bind(this));
         },
 
