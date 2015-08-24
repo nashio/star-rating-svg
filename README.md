@@ -1,7 +1,7 @@
 ### jquery.star-rating-svg.js
 >v.0.9.5
 
-Star rating jQuery plugin based on SVG shapes.
+A basic, yet customizable star rating jQuery plugin based on SVG shapes.
 
 ###Features:
 * Doesn't use images
@@ -35,7 +35,13 @@ Star rating jQuery plugin based on SVG shapes.
     <link rel="stylesheet" type="text/css" href="star-rating-svg.css">
 	```
 
-3. Call the plugin:
+3. Add your markup
+
+    ```html
+    <div class="my-rating"></div>
+    ```
+
+4. Call the plugin:
 
 	```javascript
         $(".my-rating").fivestars({
@@ -56,3 +62,8 @@ This is where the generated files are stored once Grunt runs.
 
 #### [src/](https://github.com/nashio/star-rating-svg/tree/master/src)
 
+
+
+License
+------------
+The MIT License (MIT)
