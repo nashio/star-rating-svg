@@ -55,7 +55,7 @@
 
     var methods = {
         init: function () {
-            this.renderStars();
+            this.renderMarkup();
             this.addListeners();
             this.initRating();
         },
@@ -120,7 +120,7 @@
             }.bind(this));
         },
 
-        renderStars: function () {
+        renderMarkup: function () {
             // inject an svg manually to have control over attributes
             var star = '<div class="jq-star" style="width:' + this.settings.starSize+ 'px;  height:' + this.settings.starSize + 'px;"><svg version="1.1" class="jq-star-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="228.6px" height="218px" viewBox="64 -59 228.6 218" style="enable-background:new 64 -59 228.6 218; stroke-width:' + this.settings.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_1_);}.svg-hovered-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_2_);}.svg-active-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_3_);}</style>' +
                 this.getLinearGradient(this._uid + '_SVGID_1_', this.settings.emptyColor, this.settings.emptyColor) +
@@ -147,27 +147,43 @@
             if( $.isFunction( callback ) ){
                 callback(rating);
             }
-        },
-
-        unloadPlugin: function(){
-            //this.$el.removeData();
         }
 
     };
 
+    var publicMethods = {
+
+        unload: function(){
+            var _name = 'plugin_' + pluginName;
+            var $el = $(this);
+            var $star = $el.data(_name).$star;
+            $el.removeData(_name);
+            $star.off();
+        }
+
+    };
 
 
     // Avoid Plugin.prototype conflicts
     $.extend(Plugin.prototype, methods);
 
     $.fn[ pluginName ] = function ( options ) {
-            return this.each(function() {
-                // preventing against multiple instantiations
-                if ( !$.data( this, 'plugin_' + pluginName ) ) {
-                    $.data( this, 'plugin_' + pluginName, new Plugin( this, options ) );
-                }
-            });
-        };
+
+        // if options is a public method
+        if( !$.isPlainObject(options) ){
+            if( publicMethods.hasOwnProperty(options) ){
+                publicMethods[options].apply(this);
+                return;
+            }
+        }
+
+        return this.each(function() {
+            // preventing against multiple instantiations
+            if ( !$.data( this, 'plugin_' + pluginName ) ) {
+                $.data( this, 'plugin_' + pluginName, new Plugin( this, options ) );
+            }
+        });
+    };
 
 })( jQuery, window, document );
 
