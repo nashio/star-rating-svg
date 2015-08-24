@@ -16,7 +16,7 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
 * Unload mode // TODO:
 
 
-[](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg")
+<br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg")
 
 ## Usage
 
