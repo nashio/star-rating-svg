@@ -5,23 +5,9 @@ module.exports = function(grunt) {
 		// Import package manifest
 		pkg: grunt.file.readJSON("package.json"),
 
-		// Banner definitions
-		meta: {
-			banner: "/*\n" +
-				" *  <%= pkg.title || pkg.name %> - v<%= pkg.version %>\n" +
-				" *  <%= pkg.description %>\n" +
-				" *  <%= pkg.homepage %>\n" +
-				" *\n" +
-				" *  Made by <%= pkg.author.name %>\n" +
-				" *  Under <%= pkg.license %> License\n" +
-				" */\n"
-		},
-
 		// Concat definitions
 		concat: {
-			options: {
-				banner: "<%= meta.banner %>"
-			},
+			options: {},
 			dist: {
 				src: ["src/jquery.star-rating-svg.js"],
 				dest: "dist/jquery.star-rating-svg.js"
@@ -42,9 +28,7 @@ module.exports = function(grunt) {
 				src: ["dist/jquery.star-rating-svg.js"],
 				dest: "dist/jquery.star-rating-svg.min.js"
 			},
-			options: {
-				banner: "<%= meta.banner %>"
-			}
+			options: {}
 		},
 
 		// watch for changes to source
