@@ -136,7 +136,7 @@
                 this.getLinearGradient(this._uid + '_SVGID_3_', this.settings.starGradient.start, this.settings.starGradient.end) +
                 '<polygon data-side="left" class="svg-empty-' + this._uid + '"  points="146.7,17.6 64,23.9 127.1,77.7 107.5,158.3 178.2,114.9 178.3,-59" style="stroke-dasharray: 332 170 0 0; stroke: ' + this.settings.strokeColor + '"/><polygon data-side="right" class="svg-empty-' + this._uid + '" points="292.6,24.1 209.9,17.7 178.3,-59 178.2,114.9 248.8,158.4 229.4,77.8" style="stroke-dasharray: 166 172 222 0; stroke: ' + this.settings.strokeColor + '"/>' +
                 '</svg></div>';
-// -249.3
+
             // inject svg markup
             var starsMarkup = '';
             for( var i = 0; i < this.settings.totalStars; i++){
