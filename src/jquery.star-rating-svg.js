@@ -17,6 +17,7 @@
         hoverColor: 'orange',
         activeColor: 'yellow',
         useGradient: true,
+        readonly: false,
         starGradient: {
             start: '#FEF7CD',
             end: '#FF9511'
@@ -61,6 +62,7 @@
         },
 
         addListeners: function(){
+            if( this.settings.readOnly )return;
             this.$star.on('mouseover', this.hoverRating.bind(this));
             this.$star.on('mouseout', this.restoreState.bind(this));
             this.$star.on('click', this.applyRating.bind(this));
