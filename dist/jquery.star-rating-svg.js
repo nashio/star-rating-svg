@@ -147,9 +147,14 @@
             if( $.isFunction( callback ) ){
                 callback(rating);
             }
+        },
+
+        unloadPlugin: function(){
+            //this.$el.removeData();
         }
 
     };
+
 
 
     // Avoid Plugin.prototype conflicts
