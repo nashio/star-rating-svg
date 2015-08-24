@@ -1,6 +1,9 @@
-// jquery.star-rating-svg.js
-// Customizable star rating jQuery plugin
-// http://github.com/nashio
+/*
+ *  jQuery StarRatingSvg v0.9.5
+ *  http://github.com/nashio/star-rating-svg
+ *  Licensed under MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 
