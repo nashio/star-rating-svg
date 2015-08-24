@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>fiveStars, star rating jquery plugin</title>
+        <title>starRating, star rating jquery plugin</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-        <script src="../src/jquery.fivestars.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/fivestars.css">
+        <script src="../src/jquery.star-rating-svg.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/star-rating-svg.css">
     </head>
     <body>
         <!-- example with label -->
-        <span class="fs-rating-label">rating:&nbsp;</span><div class="my-rating fs-stars"></div>
+        <span class="fs-rating-label">rating:&nbsp;</span><div class="my-rating jq-stars"></div>
 
         <!-- example with custom gradient color -->
         <div class="another-rating"></div>
@@ -20,10 +20,10 @@
             $(function() {
 
                 // basic use comes with defaults values
-                $(".my-rating").fivestars({ initialRating: 4, starSize: 25 });
+                $(".my-rating").starRating({ initialRating: 4, starSize: 25 });
 
                 // execute a callback when star selected & define colors
-                $(".another-rating").fivestars({
+                $(".another-rating").starRating({
                     totalStars: 5,
                     emptyColor: 'lightgray',
                     hoverColor: 'salmon',
@@ -37,7 +37,7 @@
                 });
 
                 // specify the gradient start and end for the selected stars
-                $(".bigger-rating").fivestars({
+                $(".bigger-rating").starRating({
                     starSize: 90,
                     strokeWidth: 3,
                     strokeColor: 'darkgray',

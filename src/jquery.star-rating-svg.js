@@ -1,4 +1,4 @@
-// fivestars.js
+// jquery.star-rating-svg.js
 // svg star rating jQuery plugin
 // http://github.com/nashio
 
@@ -7,7 +7,7 @@
     'use strict';
 
     // Create the defaults once
-    var pluginName = 'fivestars';
+    var pluginName = 'starRating';
     var defaults = {
         totalStars: 5,
         emptyColor: 'lightgray',
@@ -27,7 +27,6 @@
     // The actual plugin constructor
     var Plugin = function( element, options ) {
         var _rating;
-
         this.element = element;
         this.settings = $.extend( {}, defaults, options );
         this.$el = $(element);
@@ -120,7 +119,7 @@
 
         renderStars: function () {
             // inject an svg manually to have control over attributes
-            var star = '<div class="fs-star" style="width:' + this.settings.starSize+ 'px;  height:' + this.settings.starSize + 'px;"><svg version="1.1" class="fs-star-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="228.6px" height="218px" viewBox="64 -59 228.6 218" style="enable-background:new 64 -59 228.6 218; stroke-width:' + this.settings.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_1_);}.svg-hovered-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_2_);}.svg-active-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_3_);}</style>' +
+            var star = '<div class="jq-star" style="width:' + this.settings.starSize+ 'px;  height:' + this.settings.starSize + 'px;"><svg version="1.1" class="jq-star-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="228.6px" height="218px" viewBox="64 -59 228.6 218" style="enable-background:new 64 -59 228.6 218; stroke-width:' + this.settings.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_1_);}.svg-hovered-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_2_);}.svg-active-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_3_);}</style>' +
                 this.getLinearGradient(this._uid + '_SVGID_1_', this.settings.emptyColor, this.settings.emptyColor) +
                 this.getLinearGradient(this._uid + '_SVGID_2_', this.settings.hoverColor, this.settings.hoverColor) +
                 this.getLinearGradient(this._uid + '_SVGID_3_', this.settings.starGradient.start, this.settings.starGradient.end) +
@@ -133,7 +132,7 @@
                 starsMarkup += star;
             }
             this.$el.append(starsMarkup);
-            this.$star = this.$el.find('.fs-star');
+            this.$star = this.$el.find('.jq-star');
         },
 
         getLinearGradient: function(id, startColor, endColor){

@@ -1,4 +1,4 @@
-### jquery.fivestars.js
+### jquery.star-rating-svg.js
 >v.0.9.5
 
 Star rating jQuery plugin based on SVG shapes.
