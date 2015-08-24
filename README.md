@@ -4,7 +4,7 @@
 Star rating jQuery plugin based on SVG shapes.
 
 ###Features:
-* No images, uses SVG stars
+* Doesn't use images
 * Custom size
 * Custom colors
 * Choose the number of stars to be displayed
@@ -26,13 +26,13 @@ Star rating jQuery plugin based on SVG shapes.
 2. Include plugin's code:
 
 	```html
-	<script src="jquery.fivestars.js"></script>
+	<script src="jquery.star-rating-svg.js"></script>
 	```
 
 2. Include plugin's css:
 
 	```html
-    <link rel="stylesheet" type="text/css" href="fivestars.css">
+    <link rel="stylesheet" type="text/css" href="star-rating-svg.css">
 	```
 
 3. Call the plugin:
@@ -46,13 +46,13 @@ Star rating jQuery plugin based on SVG shapes.
         });
 	```
 
-#### [demo/](https://github.com/nashio/jquery-fivestars/tree/master/demo)
+#### [demo/](https://github.com/nashio/star-rating-svg/tree/master/demo)
 
 Contains a simple HTML file to demonstrate your plugin.
 
-#### [dist/](https://github.com/nashio/jquery-fivestars/tree/master/dist)
+#### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist)
 
 This is where the generated files are stored once Grunt runs.
 
-#### [src/](https://github.com/nashio/jquery-fivestars/tree/master/src)
+#### [src/](https://github.com/nashio/star-rating-svg/tree/master/src)
 
