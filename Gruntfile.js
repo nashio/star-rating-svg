@@ -23,14 +23,14 @@ module.exports = function(grunt) {
 				banner: "<%= meta.banner %>"
 			},
 			dist: {
-				src: ["src/jquery.fivestars.js"],
-				dest: "dist/jquery.fivestars.js"
+				src: ["src/jquery.star-rating-svg.js"],
+				dest: "dist/jquery.star-rating-svg.js"
 			}
 		},
 
 		// Lint definitions
 		jshint: {
-			files: ["src/jquery.fivestars.js"],
+			files: ["src/jquery.star-rating-svg.js"],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -39,8 +39,8 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["dist/jquery.fivestars.js"],
-				dest: "dist/jquery.fivestars.min.js"
+				src: ["dist/jquery.star-rating-svg.js"],
+				dest: "dist/jquery.star-rating-svg.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"

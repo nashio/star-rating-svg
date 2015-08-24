@@ -1,7 +1,7 @@
 {
-  "name": "jquery-fivestars",
+  "name": "star-rating-svg",
   "version": "3.5.0",
-  "description": "A star rating plugin using svg shapes",
+  "description": "A star rating plugin based on svg",
   "keywords": [
     "star",
     "rating",
@@ -10,16 +10,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nashio/jquery-fivestars.git"
+    "url": "https://github.com/nashio/star-rating-svg.git"
   },
   "bugs": {
-    "url": "https://github.com/nashio/jquery-fivestars/issues"
+    "url": "https://github.com/nashio/star-rating-svg/issues"
   },
   "author": {
     "name": "Ignacio Chavez",
     "url": "https://github.com/nashio"
   },
-  "homepage": "nashio.github.com/fivestars-plugin",
+  "homepage": "nashio.github.com/star-rating-svg",
   "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.5",
