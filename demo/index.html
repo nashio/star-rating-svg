@@ -11,39 +11,32 @@
         <span class="fs-rating-label">rating:&nbsp;</span><div class="my-rating fs-stars"></div>
 
         <!-- example with custom gradient color -->
-        <div class="big-rating"></div>
+        <div class="another-rating"></div>
 
         <!-- example using rating defined inline -->
         <div class="bigger-rating" data-rating="3.3"></div>
 
         <script>
             $(function() {
-                $(".my-rating").fivestars({
+
+                // basic use comes with defaults values
+                $(".my-rating").fivestars({ initialRating: 4, starSize: 25 });
+
+                // execute a callback when star selected & define colors
+                $(".another-rating").fivestars({
                     totalStars: 5,
-                    starSize: 25, // pixels
                     emptyColor: 'lightgray',
                     hoverColor: 'salmon',
                     activeColor: 'cornflowerblue',
-                    strokeWidth: 2,
+                    strokeWidth: 0,
                     initialRating: 4,
-                    callback: function(currentRating){
-                        // make a server call here
-                    }
-                });
-
-                $(".big-rating").fivestars({
-                    totalStars: 5,
-                    starSize: 60, // pixels
-                    emptyColor: '#DDDDDD',
-                    hoverColor: '#AAAAAA',
-                    activeColor: 'royalBlue',
-                    initialRating: 3.5,
                     useGradient: false,
                     callback: function(currentRating){
                         // make a server call here
                     }
                 });
 
+                // specify the gradient start and end for the selected stars
                 $(".bigger-rating").fivestars({
                     starSize: 90,
                     strokeWidth: 3,

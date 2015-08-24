@@ -1,6 +1,17 @@
-### A star rating jQuery plugin using svg
+### jquery.fivestars.js
+>v.0.9.5
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Star rating jQuery plugin based on SVG shapes.
+
+###Features:
+* No images, uses SVG stars
+* Custom size
+* Custom colors
+* Choose the number of stars to be displayed
+* Define gradient color of selected stars
+* Specify a border/stroke thickness and color
+* Specify initial rating via options or markup data attribute
+* Available callback to notify server with rating
 
 ## Usage
 
@@ -25,17 +36,12 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 3. Call the plugin:
 
 	```javascript
-    $(".my-rating").fivestars({
-        totalStars: 5,
-        starSize: 25, // pixels
-        emptyColor: 'lightgray',
-        hoverColor: 'salmon',
-        activeColor: 'cornflowerblue',
-        initialRating: 3,
-        callback: function(currentRating){
-            // make a server call here
-        }
-    });
+        $(".my-rating").fivestars({
+            starSize: 25,
+            callback: function(currentRating){
+                // make a server call here
+            }
+        });
 	```
 
 #### [demo/](https://github.com/nashio/jquery-fivestars/tree/master/demo)
@@ -48,6 +54,3 @@ This is where the generated files are stored once Grunt runs.
 
 #### [src/](https://github.com/nashio/jquery-fivestars/tree/master/src)
 
-## Team
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

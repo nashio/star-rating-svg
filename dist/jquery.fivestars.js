@@ -29,7 +29,7 @@
         strokeWidth: 0,
         strokeColor: 'black',
         initialRating: 0,
-        starSize: 50
+        starSize: 40
     };
 
     // The actual plugin constructor
