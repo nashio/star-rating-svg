@@ -46,7 +46,7 @@ Star rating jQuery plugin based on SVG shapes.
         });
 	```
 
-#### [demo/](https://github.com/nashio/star-rating-svg/tree/master/demo)
+#### [demo/](https://github.com/nashio/star-rating-svg/blob/master/demo/index.html)
 
 Contains a simple HTML file to demonstrate your plugin.
 
