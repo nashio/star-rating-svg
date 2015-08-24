@@ -12,6 +12,8 @@ Star rating jQuery plugin based on SVG shapes.
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
 * Available callback to notify server with rating
+* Read-only mode // TODO:
+* Unload mode // TODO:
 
 ## Usage
 
