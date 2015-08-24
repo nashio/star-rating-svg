@@ -1,3 +1,11 @@
+/*
+ *  star-rating-svg - v3.5.0
+ *  A star rating plugin based on svg
+ *  nashio.github.com/star-rating-svg
+ *
+ *  Made by Ignacio Chavez
+ *  Under MIT License
+ */
 // jquery.star-rating-svg.js
 // Customizable star rating jQuery plugin
 // http://github.com/nashio

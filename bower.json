@@ -1,18 +1,17 @@
 {
-	"name": "jquery-boilerplate",
+	"name": "star-rating-svg",
 	"version": "3.5.0",
-	"homepage": "http://jqueryboilerplate.com",
+	"homepage": "http://nashio.github.io/star-rating-svg",
 	"authors": [
-		"Zeno Rocha <hi@zenorocha.com>"
+		"Ignacio Chavez<hello@ignaciochavez.com>"
 	],
-	"description": "A jump-start for jQuery plugins development.",
-	"main": "src/jquery.boilerplate.js",
+	"description": "Star rating plugin with svg support",
+	"main": "src/jquery.star-rating-svg.js",
 	"keywords": [
 		"jquery",
 		"plugin",
-		"boilerplate",
-		"jquery-plugin",
-		"jquery-boilerplate"
+        "star",
+        "rating"
 	],
 	"license": "MIT"
 }
