@@ -76,14 +76,29 @@ http://nashio.github.io/star-rating-svg/
 | readonly | false | If false any interaction is disabled |
 | strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
 | strokeColor | black | Defines the color for the border |
-| callback | noop | Executes when rating |
 
 ## Methods
 
-| method  | description  |
+| method | description  |
 |---|---|
 | unload | unloads the plugin and its events attached to it |
-|        | ex. $('your-selector').starRating('unload')      |
+```javascript
+$('your-selector').starRating('unload')
+```
+
+## Callbacks
+
+| name | arguments | description |
+|---|---|---|
+| callback | rating | Executes when selecting a rate |
+```javascript
+$(your-selector).starRating({
+    callback: function(currentRating){
+    	// called when clicking a star
+    }
+});
+```
+
 
 
 ### Files
