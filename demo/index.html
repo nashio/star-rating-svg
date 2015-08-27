@@ -42,7 +42,7 @@ $(".my-rating").starRating({
 &lt;div&gt; class="my-rating-2" data-rating="2.5">&lt;/div&gt;
 </pre>
 
-<!-- example with custom gradient color -->
+<!-- example grabing rating from markup -->
 <div class="my-rating-2" data-rating="2.5"></div>
 
 <pre class="pre-show prettyprint">
@@ -106,16 +106,45 @@ $(".my-rating-4").starRating({
 });
 </pre>
 
+<hr>
+
+<pre class="pre-show prettyprint">
+// execute callback when rating
+&lt;div&gt; class="my-rating-4">&lt;/div&gt;
+</pre>
+
+<!-- example read-only -->
+<div class="my-rating-5"></div>
+
+<pre class="pre-show prettyprint">
+$(".my-rating-5").starRating({
+	readOnly: true
+});
+</pre>
+
+<hr>
+
+<pre class="pre-show prettyprint">
+// unloading the plugin instance
+$(".my-rating").starRating('unload');
+</pre>
+
+<hr>
+
+
 <div class="options">
     See options @ <a href="https://github.com/nashio/star-rating-svg/">github</a>
 </div>
+
+
+
 <script>
 $(function() {
 
     // basic use comes with defaults values
     $(".my-rating").starRating({ initialRating: 4, starSize: 25 });
 
-    // execute a callback when star selected & define colors
+    // example grabing rating from markup, and custom colors
     $(".my-rating-2").starRating({
         totalStars: 5,
         emptyColor: 'lightgray',
@@ -149,8 +178,12 @@ $(function() {
             alert('rated ' +  currentRating);
         }
     });
+    
+    $(".my-rating-5").starRating({
+    	readOnly: true
+    });
 
-    //$(".bigger-rating").starRating('unload');
+   
 });
 </script>
 <script src="../src/jquery.star-rating-svg.js"></script>
