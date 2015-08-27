@@ -73,7 +73,7 @@ http://nashio.github.io/star-rating-svg/
 | useGradient | true | Active stars will use gradient coloring |
 | | | To use this option you need to populate the object [starGradient] |
 | starGradient | {start: '#FEF7CD', end: '#FF9511'} | Define the star and end colors for the gradient |
-| readonly | false | If false any interaction is disabled |
+| readOnly | false | If false any interaction is disabled |
 | strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
 | strokeColor | black | Defines the color for the border |
 
