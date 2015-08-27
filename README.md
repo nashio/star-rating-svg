@@ -78,6 +78,14 @@ http://nashio.github.io/star-rating-svg/
 | strokeColor | black | Defines the color for the border |
 | callback | noop | Executes when rating |
 
+## Methods
+
+| method  | description  |
+|---|---|
+| unload | unloads the plugin and its events attached to it |
+|        | ex. $('your-selector').starRating('unload')      |
+
+
 ### Files
 
 Code example
