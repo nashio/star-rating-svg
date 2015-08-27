@@ -115,6 +115,12 @@ Minified version
 
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
+## Changelog
+0.9.5
+-----
+- Added readonly mode
+
+
 
 License
 ------------
