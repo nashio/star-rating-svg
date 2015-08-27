@@ -66,9 +66,9 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
 | hoverColor | orange | Color assigned to hovered star |
 | activeColor | gold | Color assigned to active rated star |
 | useGradient | true | Active stars will use gradient coloring |
-| | | to use this option you need to populate [starGradient] |
+| | | To use this option you need to populate the object [starGradient] |
+| starGradient | {start: '#FEF7CD', end: '#FF9511'} | Define the star and end colors for the gradient |
 | readonly | false | If false any interaction is disabled |
-| starGradient | {start: '#FEF7CD',end: '#FF9511'} | Define the star and end colors for the gradient
 | strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
 | strokeColor | black | Defines the color for the border |
 | callback | noop | Executes when rating |
