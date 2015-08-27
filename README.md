@@ -43,7 +43,7 @@ http://nashio.github.io/star-rating-svg/
     <link rel="stylesheet" type="text/css" href="star-rating-svg.css">
 	```
 
-3. Add your markup
+3. Add markup
 
     ```html
     <div class="my-rating"></div>
