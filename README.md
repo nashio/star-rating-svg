@@ -92,9 +92,9 @@ $('your-selector').starRating('unload')
 |---|---|---|
 | callback | rating | Executes when selecting a rate |
 ```javascript
-$(your-selector).starRating({
+$('your-selector').starRating({
     callback: function(currentRating){
-    	// called when clicking a star
+    	// do something after rating
     }
 });
 ```
