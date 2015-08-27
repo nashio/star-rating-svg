@@ -18,6 +18,11 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg)
 
+## demo
+  
+For a working **demo**, see:
+http://nashio.github.io/star-rating-svg/
+
 ## Usage
 
 1. Include jQuery:
@@ -38,7 +43,7 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
     <link rel="stylesheet" type="text/css" href="star-rating-svg.css">
 	```
 
-3. Add your markup
+3. Add markup
 
     ```html
     <div class="my-rating"></div>
@@ -55,7 +60,23 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
         });
 	```
 
+## Options
 
+| option  | default  | description  |
+|---|---|---|
+| totalStar  | 5  | Amount of stars to show  |
+| initialRating | 0 | Initial rating applied on load |
+| starSize | 40 | width in pixels of each star |
+| emptyColor | lightgray | Color assigned to an empty star |
+| hoverColor | orange | Color assigned to hovered star |
+| activeColor | gold | Color assigned to active rated star |
+| useGradient | true | Active stars will use gradient coloring |
+| | | To use this option you need to populate the object [starGradient] |
+| starGradient | {start: '#FEF7CD', end: '#FF9511'} | Define the star and end colors for the gradient |
+| readonly | false | If false any interaction is disabled |
+| strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
+| strokeColor | black | Defines the color for the border |
+| callback | noop | Executes when rating |
 
 ### Files
 
