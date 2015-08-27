@@ -21,7 +21,7 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
 ## demo
   
 For a working **demo**, see:
-http://nashio.github.io/star-rating-svg/demo
+http://nashio.github.io/star-rating-svg/
 
 ## Usage
 
