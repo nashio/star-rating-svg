@@ -1,0 +1,35 @@
+{
+  "name": "star-rating-svg",
+  "version": "3.5.0",
+  "description": "A star rating plugin based on svg",
+  "keywords": [
+    "star",
+    "rating",
+    "star rating",
+    "jquery"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nashio/star-rating-svg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nashio/star-rating-svg/issues"
+  },
+  "author": {
+    "name": "Ignacio Chavez",
+    "url": "https://github.com/nashio"
+  },
+  "homepage": "nashio.github.com/star-rating-svg",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "^0.8.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
+  }
+}

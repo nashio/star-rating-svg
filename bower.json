@@ -1,0 +1,17 @@
+{
+	"name": "star-rating-svg",
+	"version": "3.5.0",
+	"homepage": "http://nashio.github.io/star-rating-svg",
+	"authors": [
+		"Ignacio Chavez<hello@ignaciochavez.com>"
+	],
+	"description": "Star rating plugin with svg support",
+	"main": "src/jquery.star-rating-svg.js",
+	"keywords": [
+		"jquery",
+		"plugin",
+        "star",
+        "rating"
+	],
+	"license": "MIT"
+}
