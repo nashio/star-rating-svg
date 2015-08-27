@@ -1,0 +1,43 @@
+body {
+    font-family: helvetica, arial;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+a {
+    text-decoration: none;
+    color: royalblue;
+}
+
+hr {
+    margin: 40px 0;
+    border-top: 1px dashed #dddddd;
+}
+
+iframe {
+    margin: 10px 0;
+    display: block;
+}
+
+.info {
+    font-size: 13px;
+    color: lightgray;
+}
+
+.content {
+    width: 640px;
+}
+
+pre.prettyprint {
+    font-family: "Lucida Console", Monaco, monospace;
+    display: block;
+    margin: 20px 0;
+    font-size: 13px;
+    line-height: 20px;;
+    padding: 20px;
+    background: #EEEEEE;
+    border: 0;
+}
+
