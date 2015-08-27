@@ -15,8 +15,9 @@
         totalStars: 5,
         emptyColor: 'lightgray',
         hoverColor: 'orange',
-        activeColor: 'yellow',
+        activeColor: 'gold',
         useGradient: true,
+        readonly: false,
         starGradient: {
             start: '#FEF7CD',
             end: '#FF9511'
@@ -31,8 +32,8 @@
     var Plugin = function( element, options ) {
         var _rating;
         this.element = element;
-        this.settings = $.extend( {}, defaults, options );
         this.$el = $(element);
+        this.settings = $.extend( {}, defaults, options );
 
         // grab rating if defined on the element
         _rating = this.$el.data('rating') || this.settings.initialRating;
@@ -40,6 +41,7 @@
             // round to the nearest half
             rating: (Math.round( _rating * 2 ) / 2).toFixed(1)
         };
+
         // create unique id for stars
         this._uid = Math.floor( Math.random() * 999 );
 
@@ -61,20 +63,23 @@
         },
 
         addListeners: function(){
+            if( this.settings.readOnly )return;
             this.$star.on('mouseover', this.hoverRating.bind(this));
             this.$star.on('mouseout', this.restoreState.bind(this));
             this.$star.on('click', this.applyRating.bind(this));
         },
 
+        // apply styles to hovered stars
         hoverRating: function(e){
             this.paintStars(this.getIndex(e), 'hovered');
         },
 
+        // clicked on a rate, apply style and state
         applyRating: function(e){
             var index = this.getIndex(e);
             var rating = index + 1;
 
-            // paint selected stars and remove hovered color
+            // paint selected and remove hovered color
             this.paintStars(index, 'active');
             this.executeCallback( rating );
             this._state.rating = rating;
@@ -89,8 +94,10 @@
             var $target = $(e.currentTarget);
             var width = $target.width();
             var side = ( e.offsetX < width / 2 ) ? 'left' : 'right';
+
             // get index for half or whole star
             var index = $target.index() - ((side === 'left') ? 0.5 : 0);
+
             // pointer is way to the left, rating should be none
             index = ( index < 0 && (e.offsetX < width / 5) ) ? -1 : index;
             return index;
