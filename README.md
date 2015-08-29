@@ -52,7 +52,7 @@ http://nashio.github.io/star-rating-svg/
 4. Call the plugin:
 
 	```javascript
-        $(".my-rating").fivestars({
+        $(".my-rating").starRating({
             starSize: 25,
             callback: function(currentRating){
                 // make a server call here
