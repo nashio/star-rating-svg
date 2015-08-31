@@ -43,7 +43,7 @@ http://nashio.github.io/star-rating-svg/
     <link rel="stylesheet" type="text/css" href="star-rating-svg.css">
 	```
 
-3. Add markup
+3. Add the markup
 
     ```html
     <div class="my-rating"></div>
@@ -52,7 +52,7 @@ http://nashio.github.io/star-rating-svg/
 4. Call the plugin:
 
 	```javascript
-        $(".my-rating").fivestars({
+        $(".my-rating").starRating({
             starSize: 25,
             callback: function(currentRating){
                 // make a server call here
@@ -114,6 +114,12 @@ Source file
 Minified version
 
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
+
+## Changelog
+0.9.5
+-----
+- Added readonly mode
+
 
 
 License
