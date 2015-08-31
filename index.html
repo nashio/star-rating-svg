@@ -48,10 +48,10 @@ $(".my-rating").starRating({
 <pre class="pre-show prettyprint">
 $(".my-rating-2").starRating({
     totalStars: 5,
+    starSize: 40,
     emptyColor: 'lightgray',
     hoverColor: 'salmon',
-    activeColor: 'cornflowerblue',
-    strokeWidth: 0,
+    activeColor: 'crimson',
     useGradient: false
 });
 </pre>
@@ -70,13 +70,13 @@ $(".my-rating-2").starRating({
 <pre class="pre-show prettyprint">
 // specify the gradient start and end for the selected stars
 $(".my-rating-3").starRating({
-    starSize: 50,
-    strokeWidth: 3,
-    strokeColor: 'darkgray',
+    starSize: 80,
+    strokeWidth: 9,
+    strokeColor: 'black',
     initialRating: 2,
     starGradient: {
-        start: '#AABBCC',
-        end: '#002233'
+        start: '#93BFE2',
+        end: '#105694'
     },
 });
 </pre>
@@ -109,7 +109,7 @@ $(".my-rating-4").starRating({
 <hr>
 
 <pre class="pre-show prettyprint">
-// read-only example
+// execute callback when rating
 &lt;div&gt; class="my-rating-4">&lt;/div&gt;
 </pre>
 
@@ -118,8 +118,7 @@ $(".my-rating-4").starRating({
 
 <pre class="pre-show prettyprint">
 $(".my-rating-5").starRating({
-    initialRating: 4,
-	readOnly: true
+    readOnly: true
 });
 </pre>
 
@@ -185,7 +184,7 @@ $(function() {
 
     $(".my-rating-5").starRating({
         initialRating: 4,
-    	readOnly: true
+        readOnly: true
     });
 
 
