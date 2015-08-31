@@ -118,11 +118,9 @@ Minified version
 ### Changelog
 
 #### 0.8.2
------
 - Fixed bugs related to rendering in retina  
   
 #### 0.8.0
------
 - Added readonly mode
 
 
