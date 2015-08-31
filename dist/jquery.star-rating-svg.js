@@ -15,8 +15,9 @@
         totalStars: 5,
         emptyColor: 'lightgray',
         hoverColor: 'orange',
-        activeColor: 'yellow',
+        activeColor: 'gold',
         useGradient: true,
+        readonly: false,
         starGradient: {
             start: '#FEF7CD',
             end: '#FF9511'
@@ -31,8 +32,8 @@
     var Plugin = function( element, options ) {
         var _rating;
         this.element = element;
-        this.settings = $.extend( {}, defaults, options );
         this.$el = $(element);
+        this.settings = $.extend( {}, defaults, options );
 
         // grab rating if defined on the element
         _rating = this.$el.data('rating') || this.settings.initialRating;
@@ -40,6 +41,7 @@
             // round to the nearest half
             rating: (Math.round( _rating * 2 ) / 2).toFixed(1)
         };
+
         // create unique id for stars
         this._uid = Math.floor( Math.random() * 999 );
 
@@ -61,20 +63,25 @@
         },
 
         addListeners: function(){
+            if( this.settings.readOnly ){
+                return;
+            }
             this.$star.on('mouseover', this.hoverRating.bind(this));
             this.$star.on('mouseout', this.restoreState.bind(this));
             this.$star.on('click', this.applyRating.bind(this));
         },
 
+        // apply styles to hovered stars
         hoverRating: function(e){
             this.paintStars(this.getIndex(e), 'hovered');
         },
 
+        // clicked on a rate, apply style and state
         applyRating: function(e){
             var index = this.getIndex(e);
             var rating = index + 1;
 
-            // paint selected stars and remove hovered color
+            // paint selected and remove hovered color
             this.paintStars(index, 'active');
             this.executeCallback( rating );
             this._state.rating = rating;
@@ -89,8 +96,10 @@
             var $target = $(e.currentTarget);
             var width = $target.width();
             var side = ( e.offsetX < width / 2 ) ? 'left' : 'right';
+
             // get index for half or whole star
             var index = $target.index() - ((side === 'left') ? 0.5 : 0);
+
             // pointer is way to the left, rating should be none
             index = ( index < 0 && (e.offsetX < width / 5) ) ? -1 : index;
             return index;
@@ -122,11 +131,12 @@
 
         renderMarkup: function () {
             // inject an svg manually to have control over attributes
-            var star = '<div class="jq-star" style="width:' + this.settings.starSize+ 'px;  height:' + this.settings.starSize + 'px;"><svg version="1.1" class="jq-star-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="228.6px" height="218px" viewBox="64 -59 228.6 218" style="enable-background:new 64 -59 228.6 218; stroke-width:' + this.settings.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_1_);}.svg-hovered-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_2_);}.svg-active-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_3_);}</style>' +
+            var star = '<div class="jq-star" style="width:' + this.settings.starSize+ 'px;  height:' + this.settings.starSize + 'px;"><svg version="1.0" class="jq-star-svg" shape-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="305px" height="305px" viewBox="60 -62 309 309" style="enable-background:new 64 -59 305 305; stroke-width:' + this.settings.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_1_);}.svg-hovered-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_2_);}.svg-active-' + this._uid + '{fill:url(#' + this._uid + '_SVGID_3_);}</style>' +
                 this.getLinearGradient(this._uid + '_SVGID_1_', this.settings.emptyColor, this.settings.emptyColor) +
                 this.getLinearGradient(this._uid + '_SVGID_2_', this.settings.hoverColor, this.settings.hoverColor) +
-                this.getLinearGradient(this._uid + '_SVGID_3_', this.settings.starGradient.start, this.settings.starGradient.end) +
-                '<polygon data-side="left" class="svg-empty-' + this._uid + '"  points="146.7,17.6 64,23.9 127.1,77.7 107.5,158.3 178.2,114.9 178.3,-59" style="stroke-dasharray: 332 170 0 0; stroke: ' + this.settings.strokeColor + '"/><polygon data-side="right" class="svg-empty-' + this._uid + '" points="292.6,24.1 209.9,17.7 178.3,-59 178.2,114.9 248.8,158.4 229.4,77.8" style="stroke-dasharray: 166 172 222 0; stroke: ' + this.settings.strokeColor + '"/>' +
+this.getLinearGradient(this._uid + '_SVGID_3_', this.settings.starGradient.start, this.settings.starGradient.end) +
+                '<polygon data-side="left" class="svg-empty-' + this._uid + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 " style="stroke: ' + this.settings.strokeColor + '"/>' +
+                '<polygon data-side="right" class="svg-empty-' + this._uid + '" points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 " style="stroke-dasharray: 230 232 210 0; stroke: ' + this.settings.strokeColor + '"/>' +
                 '</svg></div>';
 
             // inject svg markup
@@ -139,7 +149,7 @@
         },
 
         getLinearGradient: function(id, startColor, endColor){
-            return '<linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="121.1501" y1="-80.35" x2="121.15" y2="102.0045"><stop  offset="0" style="stop-color:' + startColor + '"/><stop  offset="1" style="stop-color:' + endColor + '"/> </linearGradient>';
+            return '<linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="121.1501" y1="-70.35" x2="121.15" y2="125.0045"><stop  offset="0" style="stop-color:' + startColor + '"/><stop  offset="1" style="stop-color:' + endColor + '"/> </linearGradient>';
         },
 
         executeCallback: function(rating){
