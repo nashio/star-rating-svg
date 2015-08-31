@@ -11,7 +11,7 @@ A basic, yet flexible star rating jQuery plugin based on SVG shapes.
 * Define gradient color of selected stars
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
-* Available callback to notify server with rating
+* Callback after rating, to do things like notify a server
 * Read-only mode
 * Unload mode
 
