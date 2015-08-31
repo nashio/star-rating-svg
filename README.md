@@ -115,11 +115,13 @@ Minified version
 
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
-## Changelog
-0.8.2
+### Changelog
+
+#### 0.8.2
 -----
-- Fixed bugs related to rendering in retina
-0.8.0
+- Fixed bugs related to rendering in retina  
+  
+#### 0.8.0
 -----
 - Added readonly mode
 
