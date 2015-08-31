@@ -1,7 +1,7 @@
 ### star-rating-svg.js
->v.0.9.5
+>v.0.8.2
 
-A basic, yet customizable star rating jQuery plugin based on SVG shapes.
+A basic, yet flexible star rating jQuery plugin based on SVG shapes.
 
 ###Features:
 * Doesn't use images
@@ -116,7 +116,10 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ## Changelog
-0.9.5
+0.8.2
+-----
+- Fixed bugs related to rendering in retina
+0.8.0
 -----
 - Added readonly mode
 
