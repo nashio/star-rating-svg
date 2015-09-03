@@ -1,0 +1,3 @@
+[submodule "star-rating-svg"]
+	path = star-rating-svg
+	url = https://github.com/nashio/star-rating-svg.git
