@@ -28,6 +28,7 @@ iframe {
 
 .content {
     width: 640px;
+    margin: auto;
 }
 
 pre.prettyprint {
