@@ -64,9 +64,9 @@
 
         addListeners: function(){
             if( this.settings.readOnly )return;
-            this.$star.on('mouseover', this.hoverRating.bind(this));
-            this.$star.on('mouseout', this.restoreState.bind(this));
-            this.$star.on('click', this.applyRating.bind(this));
+            this.$stars.on('mouseover', this.hoverRating.bind(this));
+            this.$stars.on('mouseout', this.restoreState.bind(this));
+            this.$stars.on('click', this.applyRating.bind(this));
         },
 
         // apply styles to hovered stars
@@ -113,7 +113,7 @@
             var leftClass;
             var rightClass;
 
-            $.each(this.$star, function(index, star){
+            $.each(this.$stars, function(index, star){
                 $polygonLeft = $(star).find('polygon[data-side="left"]');
                 $polygonRight = $(star).find('polygon[data-side="right"]');
                 leftClass = rightClass = (index <= endIndex) ? stateClass : 'empty';
@@ -143,7 +143,7 @@
                 starsMarkup += star;
             }
             this.$el.append(starsMarkup);
-            this.$star = this.$el.find('.jq-star');
+            this.$stars = this.$el.find('.jq-star');
         },
 
         getLinearGradient: function(id, startColor, endColor){
