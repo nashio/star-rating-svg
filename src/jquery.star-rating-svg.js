@@ -81,7 +81,7 @@
 
             // paint selected and remove hovered color
             this.paintStars(index, 'active');
-            this.executeCallback( rating );
+            this.executeCallback( rating, this.$el );
             this._state.rating = rating;
         },
 
@@ -150,10 +150,10 @@
             return '<linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="121.1501" y1="-70.35" x2="121.15" y2="125.0045"><stop  offset="0" style="stop-color:' + startColor + '"/><stop  offset="1" style="stop-color:' + endColor + '"/> </linearGradient>';
         },
 
-        executeCallback: function(rating){
+        executeCallback: function(rating, $el){
             var callback = this.settings.callback;
             if( $.isFunction( callback ) ){
-                callback(rating);
+                callback(rating, $el);
             }
         }
 
