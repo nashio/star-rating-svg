@@ -100,8 +100,9 @@ $(".my-rating-4").starRating({
     initialRating: 4,
     strokeWidth: 0,
     useGradient: false,
-    callback: function(currentRating){
+    callback: function(currentRating, $el){
         alert('rated ', currentRating);
+        console.log('DOM clicked: ', $el);
     }
 });
 </pre>
@@ -177,8 +178,9 @@ $(function() {
         initialRating: 4,
         strokeWidth: 0,
         useGradient: false,
-        callback: function(currentRating){
+        callback: function(currentRating, $el){
             alert('rated ' +  currentRating);
+            console.log('target DOM ', $el);
         }
     });
 
