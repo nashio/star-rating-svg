@@ -13,7 +13,7 @@
 
 <div class="content">
 <h1>star-rating-svg.js</h1>
-<div class="info"><a href="https://github.com/nashio/star-rating-svg/">Github</a>&nbsp;/&nbsp;v.0.8.2
+<div class="info"><a href="https://github.com/nashio/star-rating-svg/">Github</a>&nbsp;/&nbsp;v.0.9.5
 <iframe src="https://ghbtns.com/github-btn.html?user=nashio&repo=star-rating-svg&type=star&count=true&size=medium" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
 </div>
 
@@ -100,8 +100,9 @@ $(".my-rating-4").starRating({
     initialRating: 4,
     strokeWidth: 0,
     useGradient: false,
-    callback: function(currentRating){
+    callback: function(currentRating, $el){
         alert('rated ', currentRating);
+        console.log('DOM element ', $el);
     }
 });
 </pre>
@@ -177,8 +178,9 @@ $(function() {
         initialRating: 4,
         strokeWidth: 0,
         useGradient: false,
-        callback: function(currentRating){
+        callback: function(currentRating, $el){
             alert('rated ' +  currentRating);
+            console.log('target element ', $el);
         }
     });
 

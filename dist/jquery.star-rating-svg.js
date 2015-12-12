@@ -63,9 +63,13 @@
         },
 
         addListeners: function(){
+<<<<<<< HEAD
             if( this.settings.readOnly ){
                 return;
             }
+=======
+            if( this.settings.readOnly )return;
+>>>>>>> master
             this.$star.on('mouseover', this.hoverRating.bind(this));
             this.$star.on('mouseout', this.restoreState.bind(this));
             this.$star.on('click', this.applyRating.bind(this));

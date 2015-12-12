@@ -1,7 +1,7 @@
 ### star-rating-svg.js
->v.0.9.5
+>v.0.9.3
 
-A basic, yet customizable star rating jQuery plugin based on SVG shapes.
+A basic, yet flexible star rating jQuery plugin based on SVG shapes.
 
 ###Features:
 * Doesn't use images
@@ -11,7 +11,7 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
 * Define gradient color of selected stars
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
-* Available callback to notify server with rating
+* Callback after rating, to do things like notify a server
 * Read-only mode
 * Unload mode
 
@@ -21,7 +21,7 @@ A basic, yet customizable star rating jQuery plugin based on SVG shapes.
 ## demo
 
 For a working **demo**, see:
-http://nashio.github.io/star-rating-svg/demo
+http://nashio.github.io/star-rating-svg/
 
 ## Usage
 
@@ -43,7 +43,7 @@ http://nashio.github.io/star-rating-svg/demo
     <link rel="stylesheet" type="text/css" href="star-rating-svg.css">
 	```
 
-3. Add markup
+3. Add the markup
 
     ```html
     <div class="my-rating"></div>
@@ -52,9 +52,9 @@ http://nashio.github.io/star-rating-svg/demo
 4. Call the plugin:
 
 	```javascript
-        $(".my-rating").fivestars({
+        $(".my-rating").starRating({
             starSize: 25,
-            callback: function(currentRating){
+            callback: function(currentRating, $el){
                 // make a server call here
             }
         });
@@ -73,10 +73,33 @@ http://nashio.github.io/star-rating-svg/demo
 | useGradient | true | Active stars will use gradient coloring |
 | | | To use this option you need to populate the object [starGradient] |
 | starGradient | {start: '#FEF7CD', end: '#FF9511'} | Define the star and end colors for the gradient |
-| readonly | false | If false any interaction is disabled |
+| readOnly | false | If false any interaction is disabled |
 | strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
 | strokeColor | black | Defines the color for the border |
-| callback | noop | Executes when rating |
+
+## Methods
+
+| method | description  |
+|---|---|
+| unload | unloads the plugin and its events attached to it |
+```javascript
+$('your-selector').starRating('unload')
+```
+
+## Callbacks
+
+| name | arguments | description |
+|---|---|---|
+| callback | rating, DOM element | Executes when selecting a rate |
+```javascript
+$('your-selector').starRating({
+    callback: function(currentRating, $el){
+    	// do something after rating
+    }
+});
+```
+
+
 
 ### Files
 
@@ -91,6 +114,18 @@ Source file
 Minified version
 
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
+
+### Changelog
+
+#### 0.9.3
+- Returns element on callback
+- Fixed variable name
+
+#### 0.8.2
+- Fixed bugs related to rendering in retina
+
+#### 0.8.0
+- Added readonly mode
 
 
 
