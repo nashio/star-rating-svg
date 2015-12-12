@@ -1,5 +1,5 @@
 ### star-rating-svg.js
->v.0.8.2
+>v.0.9.3
 
 A basic, yet flexible star rating jQuery plugin based on SVG shapes.
 
@@ -54,7 +54,7 @@ http://nashio.github.io/star-rating-svg/
 	```javascript
         $(".my-rating").starRating({
             starSize: 25,
-            callback: function(currentRating){
+            callback: function(currentRating, $el){
                 // make a server call here
             }
         });
@@ -90,10 +90,10 @@ $('your-selector').starRating('unload')
 
 | name | arguments | description |
 |---|---|---|
-| callback | rating | Executes when selecting a rate |
+| callback | rating, DOM element | Executes when selecting a rate |
 ```javascript
 $('your-selector').starRating({
-    callback: function(currentRating){
+    callback: function(currentRating, $el){
     	// do something after rating
     }
 });
@@ -117,9 +117,13 @@ Minified version
 
 ### Changelog
 
+#### 0.9.3
+- Returns element on callback
+- Fixed variable name
+
 #### 0.8.2
-- Fixed bugs related to rendering in retina  
-  
+- Fixed bugs related to rendering in retina
+
 #### 0.8.0
 - Added readonly mode
 
