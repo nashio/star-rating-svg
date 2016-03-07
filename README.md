@@ -51,14 +51,14 @@ http://nashio.github.io/star-rating-svg/
 
 4. Call the plugin:
 
-	```javascript
-        $(".my-rating").starRating({
-            starSize: 25,
-            callback: function(currentRating, $el){
-                // make a server call here
-            }
-        });
-	```
+    ```javascript
+    $(".my-rating").starRating({
+        starSize: 25,
+        callback: function(currentRating, $el){
+            // make a server call here
+        }
+    });
+    ```
 
 ## Options
 
