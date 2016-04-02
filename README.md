@@ -3,8 +3,6 @@
 
 ###### A basic, yet flexible star rating jQuery plugin, using SVG.
 
->v.0.9.3
-
 ###Features:
 * Doesn't use images
 * Custom size
