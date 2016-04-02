@@ -16,6 +16,10 @@ hr {
     border-top: 1px dashed #dddddd;
 }
 
+.logo {
+	width: 300px;
+}
+
 iframe {
     margin: 10px 0;
     display: block;
