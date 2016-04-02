@@ -17,8 +17,15 @@ hr {
 }
 
 .logo {
-	width: 300px;
+	width: 250px;
 	text-align: center;
+	display: block;
+	position: relative;
+	margin: auto;
+}
+
+.logo img {
+	width: 100%;
 }
 
 iframe {
