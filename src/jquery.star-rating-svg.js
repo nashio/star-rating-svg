@@ -13,12 +13,13 @@
     var pluginName = 'starRating';
     var defaults = {
         totalStars: 5,
-	useFullStars: false,
+				useFullStars: false,
         emptyColor: 'lightgray',
         hoverColor: 'orange',
         activeColor: 'gold',
         useGradient: true,
         readonly: false,
+				disableAfterRate: true,
         starGradient: {
             start: '#FEF7CD',
             end: '#FF9511'
@@ -84,6 +85,10 @@
             this.paintStars(index, 'active');
             this.executeCallback( rating, this.$el );
             this._state.rating = rating;
+
+						if(this.settings.disableAfterRate){
+							this.$stars.off();
+						}
         },
 
         restoreState: function(){

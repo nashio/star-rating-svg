@@ -19,6 +19,7 @@
         activeColor: 'gold',
         useGradient: true,
         readonly: false,
+				disableAfterRate: true,
         starGradient: {
             start: '#FEF7CD',
             end: '#FF9511'
@@ -84,6 +85,10 @@
             this.paintStars(index, 'active');
             this.executeCallback( rating, this.$el );
             this._state.rating = rating;
+
+						if(this.settings.disableAfterRate){
+							this.$stars.off();
+						}
         },
 
         restoreState: function(){
@@ -94,7 +99,6 @@
         getIndex: function(e){
             var $target = $(e.currentTarget);
             var width = $target.width();
-						console.log(this.settings.useFullStars);
             var side = ( e.offsetX < (width / 2) && !this.settings.useFullStars) ? 'left' : 'right';
 
             // get index for half or whole star
