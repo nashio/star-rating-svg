@@ -132,6 +132,21 @@ $(".my-rating").starRating('unload');
 
 <hr>
 
+<pre class="pre-show prettyprint">
+// use full stars only
+&lt;div&gt; class="my-rating-6">&lt;/div&gt;
+</pre>
+
+<!-- example fullstars -->
+<div class="my-rating-6"></div>
+
+<pre class="pre-show prettyprint">
+$(".my-rating-6").starRating({
+    useFullStars: true
+});
+</pre>
+
+<hr>
 
 <div class="options">
     See options @ <a href="https://github.com/nashio/star-rating-svg/">github</a>
@@ -188,6 +203,10 @@ $(function() {
         initialRating: 4,
         readOnly: true
     });
+
+		$(".my-rating-6").starRating({
+				useFullStars: true
+		});
 
 
 });
