@@ -7,6 +7,7 @@
 * Doesn't use images
 * Custom size
 * Custom colors
+* Use half or full stars
 * Choose the number of stars to be displayed
 * Define gradient color of selected stars
 * Specify a border/stroke thickness and color
