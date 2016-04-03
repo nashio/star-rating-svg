@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+CTYPE html>
 <html>
 <head>
     <title>starRating, star rating jquery plugin</title>
@@ -12,12 +12,15 @@
 <body>
 
 <div class="content">
-<h1>star-rating-svg.js</h1>
-<div class="info"><a href="https://github.com/nashio/star-rating-svg/">Github</a>&nbsp;/&nbsp;v.0.9.5
+<div class="logo">
+	<img src="img/star-rating-svg-logo.png" alt="star-rating-svg-logo" />
+</div>
+<h4>star-rating-svg.js</h4>
+<div class="info"><a href="https://github.com/nashio/star-rating-svg/">Github</a>&nbsp;/&nbsp;v.0.9.4
 <iframe src="https://ghbtns.com/github-btn.html?user=nashio&repo=star-rating-svg&type=star&count=true&size=medium" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
 </div>
 
-<h2>Examples</h2>
+<h2>examples</h2>
 
 
 <!-- example with label -->
@@ -102,7 +105,7 @@ $(".my-rating-4").starRating({
     useGradient: false,
     callback: function(currentRating, $el){
         alert('rated ', currentRating);
-        console.log('DOM clicked: ', $el);
+        console.log('DOM element ', $el);
     }
 });
 </pre>
@@ -110,7 +113,7 @@ $(".my-rating-4").starRating({
 <hr>
 
 <pre class="pre-show prettyprint">
-// execute callback when rating
+// read only mode
 &lt;div&gt; class="my-rating-4">&lt;/div&gt;
 </pre>
 
@@ -119,7 +122,7 @@ $(".my-rating-4").starRating({
 
 <pre class="pre-show prettyprint">
 $(".my-rating-5").starRating({
-	readOnly: true
+    readOnly: true
 });
 </pre>
 
@@ -131,13 +134,13 @@ $(".my-rating").starRating('unload');
 </pre>
 
 <hr>
+<!-- example fullstars -->
 
 <pre class="pre-show prettyprint">
 // use full stars only
 &lt;div&gt; class="my-rating-6">&lt;/div&gt;
 </pre>
 
-<!-- example fullstars -->
 <div class="my-rating-6"></div>
 
 <pre class="pre-show prettyprint">
@@ -195,7 +198,7 @@ $(function() {
         useGradient: false,
         callback: function(currentRating, $el){
             alert('rated ' +  currentRating);
-            console.log('target DOM ', $el);
+            console.log('DOM Element ', $el);
         }
     });
 
@@ -214,3 +217,5 @@ $(function() {
 <script src="../src/jquery.star-rating-svg.js"></script>
 </body>
 </html>
+
+
