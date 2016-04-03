@@ -67,7 +67,7 @@ http://nashio.github.io/star-rating-svg/
 | totalStar  | 5  | Amount of stars to show  |
 | initialRating | 0 | Initial rating applied on load |
 | starSize | 40 | width in pixels of each star |
-| useFullStars | false | rate using whole stars, no half steps |
+| useFullStars | false | rate using whole stars, if enabled, it doesn't use half-steps |
 | emptyColor | lightgray | Color assigned to an empty star |
 | hoverColor | orange | Color assigned to hovered star |
 | activeColor | gold | Color assigned to active rated star |
