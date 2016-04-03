@@ -13,7 +13,7 @@
     var pluginName = 'starRating';
     var defaults = {
         totalStars: 5,
-				useFullStars: false,
+	useFullStars: false,
         emptyColor: 'lightgray',
         hoverColor: 'orange',
         activeColor: 'gold',
