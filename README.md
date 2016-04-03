@@ -22,7 +22,7 @@
 ## demo
 
 For a working **demo**, see:
-http://nashio.github.io/star-rating-svg/
+http://nashio.github.io/star-rating-svg/demo
 
 ## Usage
 
