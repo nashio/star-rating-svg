@@ -5,7 +5,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-    <link rel="stylesheet" type="text/css" href="../src/css/star-rating-svg.css">
+    <link rel="stylesheeth type="text/css" href="../src/css/star-rating-svg.css">
     <link rel="stylesheet" type="text/css" href="css/demo.css">
 
 </head>
@@ -13,9 +13,8 @@
 
 <div class="content">
 <div class="logo">
-	<img src="img/start-rating-svg.png" alt="star-rating-svg-logo" />
+	<img src="img/star-rating-svg-logo.png" alt="star-rating-svg-logo" />
 </div>
-<h1>star-rating-svg.js</h1>
 <div class="info"><a href="https://github.com/nashio/star-rating-svg/">Github</a>&nbsp;/&nbsp;v.0.9.5
 <iframe src="https://ghbtns.com/github-btn.html?user=nashio&repo=star-rating-svg&type=star&count=true&size=medium" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
 </div>
@@ -122,7 +121,7 @@ $(".my-rating-4").starRating({
 
 <pre class="pre-show prettyprint">
 $(".my-rating-5").starRating({
-        readOnly: true
+	readOnly: true
 });
 </pre>
 
@@ -135,6 +134,21 @@ $(".my-rating").starRating('unload');
 
 <hr>
 
+<pre class="pre-show prettyprint">
+// use full stars only
+&lt;div&gt; class="my-rating-6">&lt;/div&gt;
+</pre>
+
+<!-- example fullstars -->
+<div class="my-rating-6"></div>
+
+<pre class="pre-show prettyprint">
+$(".my-rating-6").starRating({
+    useFullStars: true
+});
+</pre>
+
+<hr>
 
 <div class="options">
     See options @ <a href="https://github.com/nashio/star-rating-svg/">github</a>
@@ -183,7 +197,7 @@ $(function() {
         useGradient: false,
         callback: function(currentRating, $el){
             alert('rated ' +  currentRating);
-            console.log('DOM Element ', $el);
+            console.log('target DOM ', $el);
         }
     });
 
@@ -192,10 +206,13 @@ $(function() {
         readOnly: true
     });
 
+		$(".my-rating-6").starRating({
+				useFullStars: true
+		});
+
 
 });
 </script>
-
 <script src="../src/jquery.star-rating-svg.js"></script>
 </body>
 </html>

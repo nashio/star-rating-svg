@@ -13,6 +13,7 @@
     var pluginName = 'starRating';
     var defaults = {
         totalStars: 5,
+				useFullStars: false,
         emptyColor: 'lightgray',
         hoverColor: 'orange',
         activeColor: 'gold',
@@ -63,7 +64,7 @@
         },
 
         addListeners: function(){
-            if( this.settings.readOnly )return;
+            if( this.settings.readOnly ){ return; }
             this.$stars.on('mouseover', this.hoverRating.bind(this));
             this.$stars.on('mouseout', this.restoreState.bind(this));
             this.$stars.on('click', this.applyRating.bind(this));
@@ -93,7 +94,8 @@
         getIndex: function(e){
             var $target = $(e.currentTarget);
             var width = $target.width();
-            var side = ( e.offsetX < width / 2 ) ? 'left' : 'right';
+						console.log(this.settings.useFullStars);
+            var side = ( e.offsetX < (width / 2) && !this.settings.useFullStars) ? 'left' : 'right';
 
             // get index for half or whole star
             var index = $target.index() - ((side === 'left') ? 0.5 : 0);
