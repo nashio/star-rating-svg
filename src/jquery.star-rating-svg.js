@@ -94,7 +94,6 @@
         getIndex: function(e){
             var $target = $(e.currentTarget);
             var width = $target.width();
-						console.log(this.settings.useFullStars);
             var side = ( e.offsetX < (width / 2) && !this.settings.useFullStars) ? 'left' : 'right';
 
             // get index for half or whole star
