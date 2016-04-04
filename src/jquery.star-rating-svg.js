@@ -1,8 +1,9 @@
 /*
  *  jQuery StarRatingSvg v0.9.5
- *  http://github.com/nashio/star-rating-svg
- *  Licensed under MIT
  *
+ *  http://github.com/nashio/star-rating-svg
+ *  Author: Ignacio Chavez
+ *  Licensed under MIT
  */
 
 ;(function ( $, window, document, undefined ) {
