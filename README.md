@@ -65,7 +65,7 @@ http://nashio.github.io/star-rating-svg/demo
 
 | option  | default  | description  |
 |---|---|---|
-| totalStar  | 5  | Amount of stars to show  |
+| totalStars  | 5  | Amount of stars to show  |
 | initialRating | 0 | Initial rating applied on load |
 | starSize | 40 | width in pixels of each star |
 | useFullStars | false | rate using whole stars, if enabled, it doesn't use half-steps |
