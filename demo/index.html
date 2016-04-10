@@ -183,55 +183,55 @@ $(".my-rating-7").starRating({
 <script>
 $(function() {
 
-    // basic use comes with defaults values
-    $(".my-rating").starRating({
-        initialRating: 4,
-        starSize: 25
-    });
+  // basic use comes with defaults values
+  $(".my-rating").starRating({
+    initialRating: 4,
+    starSize: 25
+  });
 
-    // example grabing rating from markup, and custom colors
-    $(".my-rating-2").starRating({
-        totalStars: 5,
-        starSize: 40,
-        emptyColor: 'lightgray',
-        hoverColor: 'salmon',
-        activeColor: 'crimson',
-        useGradient: false
-    });
+  // example grabing rating from markup, and custom colors
+  $(".my-rating-2").starRating({
+    totalStars: 5,
+    starSize: 40,
+    emptyColor: 'lightgray',
+    hoverColor: 'salmon',
+    activeColor: 'crimson',
+    useGradient: false
+  });
 
-    // specify the gradient start and end for the selected stars
-    $(".my-rating-3").starRating({
-        starSize: 80,
-        strokeWidth: 9,
-        strokeColor: 'black',
-        initialRating: 2,
-        starGradient: {
-            start: '#93BFE2',
-            end: '#105694'
-        },
-    });
+  // specify the gradient start and end for the selected stars
+  $(".my-rating-3").starRating({
+    starSize: 80,
+    strokeWidth: 9,
+    strokeColor: 'black',
+    initialRating: 2,
+    starGradient: {
+      start: '#93BFE2',
+      end: '#105694'
+    },
+  });
 
-    $(".my-rating-4").starRating({
-        totalStars: 5,
-        emptyColor: 'lightgray',
-        hoverColor: 'salmon',
-        activeColor: 'cornflowerblue',
-        initialRating: 4,
-        strokeWidth: 0,
-        useGradient: false,
-        callback: function(currentRating, $el){
-            alert('rated ' +  currentRating);
-            console.log('DOM Element ', $el);
-        }
-    });
+  $(".my-rating-4").starRating({
+    totalStars: 5,
+    emptyColor: 'lightgray',
+    hoverColor: 'salmon',
+    activeColor: 'cornflowerblue',
+    initialRating: 4,
+    strokeWidth: 0,
+    useGradient: false,
+    callback: function(currentRating, $el){
+      alert('rated ' +  currentRating);
+      console.log('DOM Element ', $el);
+    }
+  });
 
     $(".my-rating-5").starRating({
-        initialRating: 4,
-        readOnly: true
+      initialRating: 4,
+      readOnly: true
     });
 
     $(".my-rating-6").starRating({
-        useFullStars: true
+      useFullStars: true
     });
 
     $(".my-rating-7").starRating({
@@ -244,7 +244,7 @@ $(function() {
       onLeave: function(currentIndex, currentRating, $el){
         console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
         $('.currentRating-7').text(currentRating);
-      },
+      }
     });
 
 });
