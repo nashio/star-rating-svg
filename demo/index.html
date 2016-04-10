@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
 <head>
     <title>starRating, star rating jquery plugin</title>
@@ -16,7 +16,7 @@
 	<img src="img/star-rating-svg-logo.png" alt="star-rating-svg-logo" />
 </div>
 <h4>star-rating-svg.js</h4>
-<div class="info"><a href="https://github.com/nashio/star-rating-svg/">Github</a>&nbsp;/&nbsp;v.0.9.4
+<div class="info"><a href="https://github.com/nashio/star-rating-svg/">Github</a>&nbsp;/&nbsp;v.1.0.0
 <iframe src="https://ghbtns.com/github-btn.html?user=nashio&repo=star-rating-svg&type=star&count=true&size=medium" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
 </div>
 
@@ -151,10 +151,26 @@ $(".my-rating-6").starRating({
 
 <hr>
 
+<pre class="pre-show prettyprint">
+// on hover event
+&lt;div&gt; class="my-rating-7">&lt;/div&gt;
+</pre>
+
+<!-- example using callback -->
+<div class="my-rating-7"></div>
+
+<pre class="pre-show prettyprint">
+$(".my-rating-7").starRating({
+    onHover: function(currentRating, $el){
+        console.log('rate: ', currentRating, ' DOM element ', $el);
+    }
+});
+</pre>
+
+
 <div class="options">
     See options @ <a href="https://github.com/nashio/star-rating-svg/">github</a>
 </div>
-
 
 
 <script>
@@ -211,9 +227,16 @@ $(function() {
 				useFullStars: true
 		});
 
+		$(".my-rating-7").starRating({
+			onHover: function(currentRating, $el){
+        console.log('rate: ', currentRating, ' DOM element ', $el);
+			}
+		});
 
 });
 </script>
 <script src="../src/jquery.star-rating-svg.js"></script>
 </body>
 </html>
+
+

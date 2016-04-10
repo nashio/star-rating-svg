@@ -13,6 +13,7 @@
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
 * Callback after rating, to do things like notify a server
+* Callback on hover events
 * Read-only mode
 * Unload mode
 
@@ -22,7 +23,7 @@
 ## demo
 
 For a working **demo**, see:
-http://nashio.github.io/star-rating-svg/
+http://nashio.github.io/star-rating-svg/demo
 
 ## Usage
 
@@ -65,7 +66,7 @@ http://nashio.github.io/star-rating-svg/
 
 | option  | default  | description  |
 |---|---|---|
-| totalStar  | 5  | Amount of stars to show  |
+| totalStars  | 5  | Amount of stars to show  |
 | initialRating | 0 | Initial rating applied on load |
 | starSize | 40 | width in pixels of each star |
 | useFullStars | false | rate using whole stars, if enabled, it doesn't use half-steps |
@@ -76,6 +77,7 @@ http://nashio.github.io/star-rating-svg/
 | | | To use this option you need to populate the object [starGradient] |
 | starGradient | {start: '#FEF7CD', end: '#FF9511'} | Define the star and end colors for the gradient |
 | readOnly | false | If false any interaction is disabled |
+| disableAfterRate | true | Removes further events once a rate is selected |
 | strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
 | strokeColor | black | Defines the color for the border |
 
@@ -101,6 +103,18 @@ $('your-selector').starRating({
 });
 ```
 
+## Events
+
+| method | description  |
+|---|---|
+| onHover | executes a callback on hover |
+```javascript
+$('your-selector').starRating({
+    onHover: function(currentRating, $el){
+			// do something after hover
+    }
+});
+```
 
 
 ### Files
@@ -118,6 +132,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.0.0
+- Adds onHover event
 
 #### 0.9.4
 - Fixes support for enabling full stars
