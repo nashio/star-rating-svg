@@ -37,7 +37,9 @@ iframe {
 .live-rating {
   font-size: 43px;
   margin-left: 10px;
-  color: lightGreen;
+  color: hotPink;
+  top: -3px;
+  position: relative;
 }
 
 pre.prettyprint {
