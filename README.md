@@ -13,7 +13,7 @@
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
 * Callback after rating, to do things like notify a server
-* Callback on hover events
+* onHover and onLeave events
 * Read-only mode
 * Unload mode
 

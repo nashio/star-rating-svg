@@ -76,7 +76,10 @@
 		hoverRating: function(e){
 			var index = this.getIndex(e);
 			this.paintStars(index, 'hovered');
-			this.settings.onHover(index + 1, this.$el);
+
+			if( $.isFunction( this.settings.onHover ) ){
+				this.settings.onHover(index + 1, this._state.rating, this.$el);
+			}
 		},
 
 		// clicked on a rate, apply style and state
@@ -94,9 +97,14 @@
 			}
 		},
 
-		restoreState: function(){
+		restoreState: function(e){
+			var index = this.getIndex(e);
 			var rating = this._state.rating || -1;
 			this.paintStars(rating - 1, 'active');
+
+			if( $.isFunction( this.settings.onLeave ) ){
+				this.settings.onLeave(index + 1, this._state.rating, this.$el);
+			}
 		},
 
 		getIndex: function(e){
@@ -134,7 +142,6 @@
 				$polygonRight.attr('class', 'svg-'  + rightClass + '-' + this._uid);
 
 			}.bind(this));
-			return endIndex;
 		},
 
 		renderMarkup: function () {
