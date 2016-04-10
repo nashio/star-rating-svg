@@ -13,6 +13,7 @@
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
 * Callback after rating, to do things like notify a server
+* Callback on hover events
 * Read-only mode
 * Unload mode
 
@@ -102,6 +103,18 @@ $('your-selector').starRating({
 });
 ```
 
+## Events
+
+| method | description  |
+|---|---|
+| onHover | executes a callback on hover |
+```javascript
+$('your-selector').starRating({
+    onHover: function(currentRating, $el){
+			// do something after hover
+    }
+});
+```
 
 
 ### Files
@@ -119,6 +132,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.0.0
+- Adds onHover event
 
 #### 0.9.4
 - Fixes support for enabling full stars
