@@ -43,6 +43,12 @@ iframe {
     margin: auto;
 }
 
+.live-rating {
+  font-size: 43px;
+  margin-left: 10px;
+  color: lightGreen;
+}
+
 pre.prettyprint {
     font-family: "Lucida Console", Monaco, monospace;
     display: block;
