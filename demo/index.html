@@ -33,8 +33,8 @@
 
 <pre class="pre-show prettyprint">
 $(".my-rating").starRating({
-    initialRating: 4,
-    starSize: 25
+  initialRating: 4,
+  starSize: 25
 });
 </pre>
 
@@ -50,12 +50,12 @@ $(".my-rating").starRating({
 
 <pre class="pre-show prettyprint">
 $(".my-rating-2").starRating({
-    totalStars: 5,
-    starSize: 40,
-    emptyColor: 'lightgray',
-    hoverColor: 'salmon',
-    activeColor: 'crimson',
-    useGradient: false
+  totalStars: 5,
+  starSize: 40,
+  emptyColor: 'lightgray',
+  hoverColor: 'salmon',
+  activeColor: 'crimson',
+  useGradient: false
 });
 </pre>
 
@@ -73,14 +73,14 @@ $(".my-rating-2").starRating({
 <pre class="pre-show prettyprint">
 // specify the gradient start and end for the selected stars
 $(".my-rating-3").starRating({
-    starSize: 80,
-    strokeWidth: 9,
-    strokeColor: 'black',
-    initialRating: 2,
-    starGradient: {
-        start: '#93BFE2',
-        end: '#105694'
-    },
+  starSize: 80,
+  strokeWidth: 9,
+  strokeColor: 'black',
+  initialRating: 2,
+  starGradient: {
+      start: '#93BFE2',
+      end: '#105694'
+  }
 });
 </pre>
 
@@ -96,17 +96,17 @@ $(".my-rating-3").starRating({
 
 <pre class="pre-show prettyprint">
 $(".my-rating-4").starRating({
-    totalStars: 5,
-    emptyColor: 'lightgray',
-    hoverColor: 'salmon',
-    activeColor: 'cornflowerblue',
-    initialRating: 4,
-    strokeWidth: 0,
-    useGradient: false,
-    callback: function(currentRating, $el){
-        alert('rated ', currentRating);
-        console.log('DOM element ', $el);
-    }
+  totalStars: 5,
+  emptyColor: 'lightgray',
+  hoverColor: 'salmon',
+  activeColor: 'cornflowerblue',
+  initialRating: 4,
+  strokeWidth: 0,
+  useGradient: false,
+  callback: function(currentRating, $el){
+      alert('rated ', currentRating);
+      console.log('DOM element ', $el);
+  }
 });
 </pre>
 
@@ -122,7 +122,7 @@ $(".my-rating-4").starRating({
 
 <pre class="pre-show prettyprint">
 $(".my-rating-5").starRating({
-    readOnly: true
+  readOnly: true
 });
 </pre>
 
@@ -145,7 +145,7 @@ $(".my-rating").starRating('unload');
 
 <pre class="pre-show prettyprint">
 $(".my-rating-6").starRating({
-    useFullStars: true
+  useFullStars: true
 });
 </pre>
 
