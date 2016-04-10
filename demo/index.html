@@ -230,11 +230,11 @@ $(function() {
         readOnly: true
     });
 
-		$(".my-rating-6").starRating({
-				useFullStars: true
-		});
+    $(".my-rating-6").starRating({
+        useFullStars: true
+    });
 
-		$(".my-rating-7").starRating({
+    $(".my-rating-7").starRating({
       initialRating: 3.5,
       disableAfterRate: false,
       onHover: function(currentIndex, currentRating, $el){
@@ -245,7 +245,7 @@ $(function() {
         console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
         $('.currentRating-7').text(currentRating);
       },
-		});
+    });
 
 });
 </script>
