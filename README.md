@@ -1,7 +1,7 @@
 
 ![](http://nashio.github.io/star-rating-svg/demo/img/star-rating-svg-logo.png)
 
-###### A basic, yet flexible star rating jQuery plugin, using SVG.
+###### A basic, yet flexible star rate jQuery plugin, using SVG.
 
 ###Features:
 * Doesn't use images
