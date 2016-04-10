@@ -107,11 +107,15 @@ $('your-selector').starRating({
 
 | method | description  |
 |---|---|
-| onHover | executes a callback on hover |
+| onHover | executes a callback on mouseover |
+| onLeave | executes a callback on mouseout |
 ```javascript
 $('your-selector').starRating({
-    onHover: function(currentRating, $el){
-			// do something after hover
+    onHover: function(currentIndex, currentRating, $el){
+			// do something on mouseover
+    },
+    onLeave: function(currentIndex, currentRating, $el){
+			// do something after mouseout
     }
 });
 ```
@@ -135,6 +139,7 @@ Minified version
 
 #### 1.0.0
 - Adds onHover event
+- Adds onLeave event
 
 #### 0.9.4
 - Fixes support for enabling full stars

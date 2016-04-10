@@ -158,12 +158,19 @@ $(".my-rating-6").starRating({
 
 <!-- example using callback -->
 <div class="my-rating-7"></div>
+<div class="currentRating-7"></div>
 
 <pre class="pre-show prettyprint">
 $(".my-rating-7").starRating({
-    onHover: function(currentRating, $el){
-        console.log('rate: ', currentRating, ' DOM element ', $el);
-    }
+		initialRating: 3.5,
+		disableAfterRate: false,
+		onHover: function(currentIndex, currentRating, $el){
+			$('.currentRating-7').text(currentIndex);
+		},
+		onLeave: function(currentIndex, currentRating, $el){
+			console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+			$('.currentRating-7').text(currentRating);
+		},
 });
 </pre>
 
@@ -228,9 +235,16 @@ $(function() {
 		});
 
 		$(".my-rating-7").starRating({
-			onHover: function(currentRating, $el){
-        console.log('rate: ', currentRating, ' DOM element ', $el);
-			}
+			initialRating: 3.5,
+			disableAfterRate: false,
+			onHover: function(currentIndex, currentRating, $el){
+				console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+				$('.currentRating-7').text(currentIndex);
+			},
+			onLeave: function(currentIndex, currentRating, $el){
+				console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+				$('.currentRating-7').text(currentRating);
+			},
 		});
 
 });
