@@ -8,10 +8,10 @@
 
 ;(function ( $, window, document, undefined ) {
 
-	'use strict';
+  'use strict';
 
-	// Create the defaults once
-	var pluginName = 'starRating';
+  // Create the defaults once
+  var pluginName = 'starRating';
   var defaults = {
     totalStars: 5,
     useFullStars: false,
