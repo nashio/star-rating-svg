@@ -12,10 +12,10 @@
 * Define gradient color of selected stars
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
-* Callback after rating, to do things like notify a server
+* Execute callback after rating, to do things like notify a server
 * onHover and onLeave events
 * Read-only mode
-* Unload mode
+* Unload option
 
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg)
