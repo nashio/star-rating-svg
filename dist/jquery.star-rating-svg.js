@@ -12,6 +12,7 @@
 
   // Create the defaults once
   var pluginName = 'starRating';
+  var noop = function(){};
   var defaults = {
     totalStars: 5,
     useFullStars: false,
@@ -28,7 +29,10 @@
     strokeWidth: 0,
     strokeColor: 'black',
     initialRating: 0,
-    starSize: 40
+    starSize: 40,
+    callback: noop,
+    onHover: noop,
+    onLeave: noop
   };
 
 	// The actual plugin constructor
@@ -76,10 +80,7 @@
     hoverRating: function(e){
       var index = this.getIndex(e);
       this.paintStars(index, 'hovered');
-
-      if( $.isFunction( this.settings.onHover ) ){
-        this.settings.onHover(index + 1, this._state.rating, this.$el);
-      }
+      this.settings.onHover(index + 1, this._state.rating, this.$el);
     },
 
     // clicked on a rate, apply style and state
@@ -101,10 +102,7 @@
       var index = this.getIndex(e);
       var rating = this._state.rating || -1;
       this.paintStars(rating - 1, 'active');
-
-      if( $.isFunction( this.settings.onLeave ) ){
-        this.settings.onLeave(index + 1, this._state.rating, this.$el);
-      }
+      this.settings.onLeave(index + 1, this._state.rating, this.$el);
     },
 
     getIndex: function(e){
@@ -169,9 +167,7 @@
 
     executeCallback: function(rating, $el){
       var callback = this.settings.callback;
-      if( $.isFunction( callback ) ){
-        callback(rating, $el);
-      }
+      callback(rating, $el);
     }
 
   };
