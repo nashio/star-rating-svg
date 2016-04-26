@@ -12,6 +12,7 @@
 
   // Create the defaults once
   var pluginName = 'starRating';
+  var noop = function(){};
   var defaults = {
     totalStars: 5,
     useFullStars: false,
@@ -29,9 +30,9 @@
     strokeColor: 'black',
     initialRating: 0,
     starSize: 40,
-    callback: function() {},
-    onHover: function() {},
-    onLeave: function() {}
+    callback: noop,
+    onHover: noop,
+    onLeave: noop
   };
 
 	// The actual plugin constructor
