@@ -5,8 +5,8 @@
 
 ###Features:
 * Doesn't use images
-* Custom size
-* Custom colors
+* Customize size
+* Customize colors
 * Use half or full stars
 * Choose the number of stars to be displayed
 * Define gradient color of selected stars
@@ -14,7 +14,7 @@
 * Specify initial rating via options or markup data attribute
 * Execute callback after rating, to do things like notify a server
 * onHover and onLeave events
-* Read-only mode
+* Locked / Read-only mode
 * Unload option
 
 
