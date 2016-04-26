@@ -1,21 +1,21 @@
 
 ![](http://nashio.github.io/star-rating-svg/demo/img/star-rating-svg-logo.png)
 
-###### A basic, yet flexible star rating jQuery plugin, using SVG.
+###### A basic, yet flexible star rate jQuery plugin, using SVG.
 
 ###Features:
 * Doesn't use images
-* Custom size
-* Custom colors
+* Customize size
+* Customize colors
 * Use half or full stars
 * Choose the number of stars to be displayed
 * Define gradient color of selected stars
 * Specify a border/stroke thickness and color
 * Specify initial rating via options or markup data attribute
-* Callback after rating, to do things like notify a server
+* Execute callback after rating (ex. to notify a server)
 * onHover and onLeave events
-* Read-only mode
-* Unload mode
+* Locked / Read-only mode
+* Unload option
 
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg)
