@@ -177,7 +177,7 @@
     unload: function(){
       var _name = 'plugin_' + pluginName;
       var $el = $(this);
-      var $star = $el.data(_name).$star;
+      var $star = $el.data(_name).$stars;
       $el.removeData(_name);
       $star.off();
     }
