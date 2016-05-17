@@ -73,7 +73,7 @@
       if( this.settings.readOnly ){ return; }
       this.$stars.on('mouseover', this.hoverRating.bind(this));
       this.$stars.on('mouseout', this.restoreState.bind(this));
-      this.$stars.on('click', this.applyRating.bind(this));
+      this.$stars.on('click', this.handleRating.bind(this));
     },
 
     // apply styles to hovered stars
@@ -84,18 +84,23 @@
     },
 
     // clicked on a rate, apply style and state
-    applyRating: function(e){
+    handleRating: function(e){
       var index = this.getIndex(e);
       var rating = index + 1;
 
-      // paint selected and remove hovered color
-      this.paintStars(index, 'active');
+      this.applyRating(rating, this.$el);
       this.executeCallback( rating, this.$el );
-      this._state.rating = rating;
 
       if(this.settings.disableAfterRate){
         this.$stars.off();
       }
+    },
+
+    applyRating: function(rating){
+      var index = rating - 1;
+      // paint selected and remove hovered color
+      this.paintStars(index, 'active');
+      this._state.rating = index + 1;
     },
 
     restoreState: function(e){
@@ -174,14 +179,27 @@
 
   var publicMethods = {
 
-    unload: function(){
+    unload: function() {
       var _name = 'plugin_' + pluginName;
       var $el = $(this);
-      var $star = $el.data(_name).$stars;
-      $el.removeData(_name);
-      $star.off();
-    }
+      var $starSet = $el.data(_name).$stars;
+      $el.removeData(_name).remove();
+      $starSet.off();
+    },
 
+    setRating: function(rating) {
+      var _name = 'plugin_' + pluginName;
+      var $el = $(this);
+      var $plugin = $el.data(_name);
+      $plugin.applyRating(rating);
+    },
+
+    getRating: function() {
+      var _name = 'plugin_' + pluginName;
+      var $el = $(this);
+      var $starSet = $el.data(_name);
+      return $starSet._state.rating;
+    }
   };
 
 
@@ -193,8 +211,9 @@
     // if options is a public method
     if( !$.isPlainObject(options) ){
       if( publicMethods.hasOwnProperty(options) ){
-        publicMethods[options].apply(this);
-        return;
+        return publicMethods[options].apply(this, Array.prototype.slice.call(arguments, 1));
+      } else {
+        $.error('Method '+ options +' does not exist on ' + pluginName + '.js');
       }
     }
 
