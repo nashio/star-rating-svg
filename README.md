@@ -83,11 +83,19 @@ http://nashio.github.io/star-rating-svg/demo
 
 ## Methods
 
-| method | description  |
-|---|---|
-| unload | unloads the plugin and its events attached to it |
+| method | arguments | description  |
+|---|---|---|
+| unload    |  &nbsp; | Destroys the instance and removes events attached to it |
+| setRating | 0 to number of stars | Manually sets the rating  |
+| getRating | &nbsp; | Gets the current rating from instance |
+  
 ```javascript
+// unload example
 $('your-selector').starRating('unload')
+// set rating example
+$('your-selector').starRating('setRating', 2.5)
+// get rating example
+$('your-selector').starRating('getRating')
 ```
 
 ## Callbacks
@@ -136,6 +144,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 05/16/2016
+- Adds set rating, and get rating
 
 #### 1.0.0
 - Adds onHover event
