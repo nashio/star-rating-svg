@@ -85,9 +85,9 @@ http://nashio.github.io/star-rating-svg/demo
 
 | method | arguments | description  |
 |---|---|---|
-| unload    |  &nbsp; | destroys the instance and removes events attached to it |
-| setRating | 0 to number of stars | sets the rating  |
-| getRating | &nbsp; | gets current rating from instance |
+| unload    |  &nbsp; | Destroys the instance and removes events attached to it |
+| setRating | 0 to number of stars | Manually sets the rating  |
+| getRating | &nbsp; | Gets the current rating from instance |
   
 ```javascript
 // unload example
