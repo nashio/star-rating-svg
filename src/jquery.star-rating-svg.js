@@ -191,6 +191,7 @@
       var _name = 'plugin_' + pluginName;
       var $el = $(this);
       var $plugin = $el.data(_name);
+      if( rating > $plugin.settings.totalStars || rating < 0 ) { return; }
       $plugin.applyRating(rating);
     },
 
