@@ -86,7 +86,7 @@ http://nashio.github.io/star-rating-svg/demo
 | method | arguments | description  |
 |---|---|---|
 | unload    |  &nbsp; | Destroys the instance and removes events attached to it |
-| setRating | 0 to number of stars | Manually sets the rating  |
+| setRating | 0 to max stars (int), round (Boolean) | Manually sets the rating  |
 | getRating | &nbsp; | Gets the current rating from instance |
 
 ```javascript
@@ -94,6 +94,8 @@ http://nashio.github.io/star-rating-svg/demo
 $('your-selector').starRating('unload')
 // set rating example
 $('your-selector').starRating('setRating', 2.5)
+// set rating and round
+$('your-selector').starRating('setRating', 2.8, true) // 3.0
 // get rating example
 $('your-selector').starRating('getRating')
 ```
