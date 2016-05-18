@@ -196,11 +196,14 @@
       $el.removeData(_name).remove();
     },
 
-    setRating: function(rating) {
+    setRating: function(rating, round) {
       var _name = 'plugin_' + pluginName;
       var $el = $(this);
       var $plugin = $el.data(_name);
       if( rating > $plugin.settings.totalStars || rating < 0 ) { return; }
+      if( round ){
+        rating = Math.round(rating);
+      }
       $plugin.applyRating(rating);
     },
 
