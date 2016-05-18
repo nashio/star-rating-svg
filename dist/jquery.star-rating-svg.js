@@ -1,5 +1,5 @@
 /*
- *  jQuery StarRatingSvg v1.0.0
+ *  jQuery StarRatingSvg v1.0.1
  *
  *  http://github.com/nashio/star-rating-svg
  *  Author: Ignacio Chavez
@@ -113,7 +113,11 @@
     getIndex: function(e){
       var $target = $(e.currentTarget);
       var width = $target.width();
-      var side = ( e.offsetX < (width / 2) && !this.settings.useFullStars) ? 'left' : 'right';
+      var side = $(e.target).attr('data-side');
+
+      // hovered outside the star, calculate by pixel instead
+      side = (!side) ? this.getOffsetByPixel(e, $target, width) : side;
+      side = (this.settings.useFullStars) ? 'right' : side ;
 
       // get index for half or whole star
       var index = $target.index() - ((side === 'left') ? 0.5 : 0);
@@ -121,6 +125,11 @@
       // pointer is way to the left, rating should be none
       index = ( index < 0 && (e.offsetX < width / 5) ) ? -1 : index;
       return index;
+    },
+
+    getOffsetByPixel: function(e, $target, width){
+      var leftX = e.pageX - $target.offset().left;
+      return ( leftX <= (width / 2) && !this.settings.useFullStars) ? 'left' : 'right';
     },
 
     initRating: function(){
