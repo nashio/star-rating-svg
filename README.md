@@ -88,7 +88,7 @@ http://nashio.github.io/star-rating-svg/demo
 | unload    |  &nbsp; | Destroys the instance and removes events attached to it |
 | setRating | 0 to number of stars | Manually sets the rating  |
 | getRating | &nbsp; | Gets the current rating from instance |
-  
+
 ```javascript
 // unload example
 $('your-selector').starRating('unload')
@@ -145,10 +145,11 @@ Minified version
 
 ### Changelog
 
-#### 05/16/2016
-- Adds set rating, and get rating
+#### 1.0.1
+- Fixes Firefox hover issues
 
 #### 1.0.0
+- Adds set rating, and get rating
 - Adds onHover event
 - Adds onLeave event
 
