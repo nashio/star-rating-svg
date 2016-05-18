@@ -20,7 +20,7 @@
     hoverColor: 'orange',
     activeColor: 'gold',
     useGradient: true,
-    readonly: false,
+    readOnly: false,
     disableAfterRate: true,
     starGradient: {
       start: '#FEF7CD',
@@ -183,8 +183,8 @@
       var _name = 'plugin_' + pluginName;
       var $el = $(this);
       var $starSet = $el.data(_name).$stars;
-      $el.removeData(_name).remove();
       $starSet.off();
+      $el.removeData(_name).remove();
     },
 
     setRating: function(rating) {

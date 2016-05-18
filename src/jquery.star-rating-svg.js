@@ -20,7 +20,7 @@
     hoverColor: 'orange',
     activeColor: 'gold',
     useGradient: true,
-    readonly: false,
+    readOnly: false,
     disableAfterRate: true,
     starGradient: {
       start: '#FEF7CD',
