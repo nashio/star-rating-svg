@@ -123,7 +123,7 @@
       var index = $target.index() - ((side === 'left') ? 0.5 : 0);
 
       // pointer is way to the left, rating should be none
-      index = ( index < 0 && (e.offsetX < width / 5) ) ? -1 : index;
+      index = ( index < 0.5 && (e.offsetX < width / 4) ) ? -1 : index;
       return index;
     },
 
@@ -196,11 +196,14 @@
       $el.removeData(_name).remove();
     },
 
-    setRating: function(rating) {
+    setRating: function(rating, round) {
       var _name = 'plugin_' + pluginName;
       var $el = $(this);
       var $plugin = $el.data(_name);
       if( rating > $plugin.settings.totalStars || rating < 0 ) { return; }
+      if( round ){
+        rating = Math.round(rating);
+      }
       $plugin.applyRating(rating);
     },
 
