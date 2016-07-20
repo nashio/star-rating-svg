@@ -16,8 +16,8 @@
 * onHover and onLeave events
 * Locked / Read-only mode
 * Unload option
-* Change star shape between rounded or straight
-* Resize stars
+* **Change star shape (rounded or straight)**
+* **Resize stars**
 
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg)
