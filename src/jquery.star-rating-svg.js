@@ -188,9 +188,9 @@
     },
 
     getSpikeVectorPath: function(id, attrs){
-      return '<polygon data-side="left" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 " style="stroke-opacity: 0;" />' +
-        '<polygon data-side="right" class="svg-empty-' + id + '" points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 " style="stroke-opacity: 0;" />' +
-        '<polygon data-side="center" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 " style="fill: transparent; stroke: ' + attrs.strokeColor + ';" />';
+      return '<polygon data-side="center" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 " style="fill: transparent; stroke: ' + attrs.strokeColor + ';" />' +
+        '<polygon data-side="left" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 " style="stroke-opacity: 0;" />' +
+          '<polygon data-side="right" class="svg-empty-' + id + '" points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 " style="stroke-opacity: 0;" />';
     },
 
     getRoundedVectorPath: function(id, attrs){
@@ -241,6 +241,26 @@
       var $el = $(this);
       var $starSet = $el.data(_name);
       return $starSet._state.rating;
+    },
+
+    resize: function(newSize) {
+      var _name = 'plugin_' + pluginName;
+      var $el = $(this);
+      var $starSet = $el.data(_name);
+      var $stars = $starSet.$stars;
+
+      if(newSize <= 1 || newSize > 200) {
+        console.log('star size out of bounds');
+        return;
+      }
+
+      $stars = Array.prototype.slice.call($stars);
+      $stars.forEach(function(star){
+        $(star).css({
+          'width': newSize + 'px',
+          'height': newSize + 'px'
+        });
+      });
     }
   };
 

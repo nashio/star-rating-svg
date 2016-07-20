@@ -16,6 +16,8 @@
 * onHover and onLeave events
 * Locked / Read-only mode
 * Unload option
+* Change star shape between rounded or straight
+* Resize stars
 
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg)
@@ -80,6 +82,7 @@ http://nashio.github.io/star-rating-svg/demo
 | disableAfterRate | true | Removes further events once a rate is selected |
 | strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
 | strokeColor | black | Defines the color for the border |
+| starShape | 'straight' or 'rounded' | Change the star shape type |
 
 ## Methods
 
@@ -88,6 +91,7 @@ http://nashio.github.io/star-rating-svg/demo
 | unload    |  &nbsp; | Destroys the instance and removes events attached to it |
 | setRating | 0 to max stars (int), round (Boolean) | Manually sets the rating  |
 | getRating | &nbsp; | Gets the current rating from instance |
+| resize | 1 to 200 | Resize the stars on the fly |
 
 ```javascript
 // unload example
@@ -98,6 +102,8 @@ $('your-selector').starRating('setRating', 2.5)
 $('your-selector').starRating('setRating', 2.8, true) // 3.0
 // get rating example
 $('your-selector').starRating('getRating')
+// resize
+$('your-selector').starRating('resize', 50)
 ```
 
 ## Callbacks
@@ -146,6 +152,10 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.1.0
+- Change the star type
+- Adds method to resize star on the fly
 
 #### 1.0.1
 - Fixes Firefox hover issues

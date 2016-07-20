@@ -16,7 +16,7 @@
   var defaults = {
     totalStars: 5,
     useFullStars: false,
-    starShape: 'rounded',
+    starShape: 'straight',
     emptyColor: 'lightgray',
     hoverColor: 'orange',
     activeColor: 'gold',
@@ -27,7 +27,7 @@
       start: '#FEF7CD',
       end: '#FF9511'
     },
-    strokeWidth: 2,
+    strokeWidth: 4,
     strokeColor: 'black',
     initialRating: 0,
     starSize: 40,
@@ -188,9 +188,9 @@
     },
 
     getSpikeVectorPath: function(id, attrs){
-      return '<polygon data-side="left" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 " style="stroke-opacity: 0;" />' +
-        '<polygon data-side="right" class="svg-empty-' + id + '" points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 " style="stroke-opacity: 0;" />' +
-        '<polygon data-side="center" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 " style="fill: transparent; stroke: ' + attrs.strokeColor + ';" />';
+      return '<polygon data-side="center" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 212.9,181.1 213.9,181 306.5,241 " style="fill: transparent; stroke: ' + attrs.strokeColor + ';" />' +
+        '<polygon data-side="left" class="svg-empty-' + id + '" points="281.1,129.8 364,55.7 255.5,46.8 214,-59 172.5,46.8 64,55.4 146.8,129.7 121.1,241 213.9,181.1 213.9,181 306.5,241 " style="stroke-opacity: 0;" />' +
+          '<polygon data-side="right" class="svg-empty-' + id + '" points="364,55.7 255.5,46.8 214,-59 213.9,181 306.5,241 281.1,129.8 " style="stroke-opacity: 0;" />';
     },
 
     getRoundedVectorPath: function(id, attrs){
@@ -200,7 +200,7 @@
     },
 
     getSvgDimensions: function(starShape){
-      return (starShape === 'spikes') ? 'x="0px" y="0px" width="305px" height="305px" viewBox="60 -62 309 309" style="enable-background:new 64 -59 305 305;' :'width="550px" height="500.2px" viewBox="0 146.8 550 500.2" style="enable-background:new 0 0 550 500.2;';
+      return (starShape === 'rounded') ? 'width="550px" height="500.2px" viewBox="0 146.8 550 500.2" style="enable-background:new 0 0 550 500.2;' : 'x="0px" y="0px" width="305px" height="305px" viewBox="60 -62 309 309" style="enable-background:new 64 -59 305 305;';
     },
 
     getLinearGradient: function(id, startColor, endColor, starShape){
@@ -241,6 +241,26 @@
       var $el = $(this);
       var $starSet = $el.data(_name);
       return $starSet._state.rating;
+    },
+
+    resize: function(newSize) {
+      var _name = 'plugin_' + pluginName;
+      var $el = $(this);
+      var $starSet = $el.data(_name);
+      var $stars = $starSet.$stars;
+
+      if(newSize <= 1 || newSize > 200) {
+        console.log('star size out of bounds');
+        return;
+      }
+
+      $stars = Array.prototype.slice.call($stars);
+      $stars.forEach(function(star){
+        $(star).css({
+          'width': newSize + 'px',
+          'height': newSize + 'px'
+        });
+      });
     }
   };
 
