@@ -20,7 +20,7 @@
 * **Resize stars**
 
 
-<br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.jpg)
+<br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.png)
 
 ## demo
 
