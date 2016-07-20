@@ -16,7 +16,7 @@
   var defaults = {
     totalStars: 5,
     useFullStars: false,
-    starShape: 'rounded',
+    starShape: 'straight',
     emptyColor: 'lightgray',
     hoverColor: 'orange',
     activeColor: 'gold',
@@ -27,7 +27,7 @@
       start: '#FEF7CD',
       end: '#FF9511'
     },
-    strokeWidth: 2,
+    strokeWidth: 4,
     strokeColor: 'black',
     initialRating: 0,
     starSize: 40,
@@ -200,7 +200,7 @@
     },
 
     getSvgDimensions: function(starShape){
-      return (starShape === 'spikes') ? 'x="0px" y="0px" width="305px" height="305px" viewBox="60 -62 309 309" style="enable-background:new 64 -59 305 305;' :'width="550px" height="500.2px" viewBox="0 146.8 550 500.2" style="enable-background:new 0 0 550 500.2;';
+      return (starShape === 'rounded') ? 'width="550px" height="500.2px" viewBox="0 146.8 550 500.2" style="enable-background:new 0 0 550 500.2;' : 'x="0px" y="0px" width="305px" height="305px" viewBox="60 -62 309 309" style="enable-background:new 64 -59 305 305;';
     },
 
     getLinearGradient: function(id, startColor, endColor, starShape){

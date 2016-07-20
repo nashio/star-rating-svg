@@ -23,33 +23,39 @@
 
 
 <!-- example with label -->
+<h4>Basic implementation</h4>
+<div class="my-rating jq-stars"></div>
+
 <pre class="pre-show prettyprint">
-// basic example
 &lt;div class="my-rating">&lt;/div&gt;
 </pre>
-
-<div class="my-rating jq-stars"></div>
 
 <pre class="pre-show prettyprint">
 $(".my-rating").starRating({
   initialRating: 4,
+  strokeColor: '#894A00',
+  strokeWidth: 10,
   starSize: 25
 });
 </pre>
 
 <hr>
 
-<pre class="pre-show prettyprint">
-// grab rating from a data attribute
-&lt;div&gt; class="my-rating-2" data-rating="2.5">&lt;/div&gt;
-</pre>
+
+<h4>Rounded star shape</h4>
 
 <!-- example grabing rating from markup -->
-<div class="my-rating-2" data-rating="2.5"></div>
+<div class="my-rating-4" data-rating="2.5"></div>
 
 <pre class="pre-show prettyprint">
-$(".my-rating-2").starRating({
+&lt;div&gt; class="my-rating-4" data-rating="2.5">&lt;/div&gt;
+</pre>
+
+
+<pre class="pre-show prettyprint">
+$(".my-rating-4").starRating({
   totalStars: 5,
+  starShape: 'rounded',
   starSize: 40,
   emptyColor: 'lightgray',
   hoverColor: 'salmon',
@@ -60,18 +66,20 @@ $(".my-rating-2").starRating({
 
 <hr>
 
+<h4>Use gradients</h4>
+
+<!-- example using gradient -->
+<div class="my-rating-5" data-rating="3.3"></div>
+
 <pre class="pre-show prettyprint">
-// define a gradient
-&lt;div&gt; class="my-rating-3">&lt;/div&gt;
+&lt;div&gt; class="my-rating-5">&lt;/div&gt;
 </pre>
 
 
-<!-- example using gradient -->
-<div class="my-rating-3" data-rating="3.3"></div>
 
 <pre class="pre-show prettyprint">
 // specify the gradient start and end for the selected stars
-$(".my-rating-3").starRating({
+$(".my-rating-5").starRating({
   starSize: 80,
   strokeWidth: 9,
   strokeColor: 'black',
@@ -85,16 +93,18 @@ $(".my-rating-3").starRating({
 
 <hr>
 
-<pre class="pre-show prettyprint">
-// execute callback when rating
-&lt;div&gt; class="my-rating-4">&lt;/div&gt;
-</pre>
+<h4>Execute callback when rating</h4>
 
 <!-- example using callback -->
-<div class="my-rating-4"></div>
+<div class="my-rating-6"></div>
 
 <pre class="pre-show prettyprint">
-$(".my-rating-4").starRating({
+&lt;div&gt; class="my-rating-6">&lt;/div&gt;
+</pre>
+
+
+<pre class="pre-show prettyprint">
+$(".my-rating-6").starRating({
   totalStars: 5,
   emptyColor: 'lightgray',
   hoverColor: 'salmon',
@@ -111,57 +121,57 @@ $(".my-rating-4").starRating({
 
 <hr>
 
-<pre class="pre-show prettyprint">
-// read only mode
-&lt;div&gt; class="my-rating-4">&lt;/div&gt;
-</pre>
+<h4>read only mode</h4>
 
 <!-- example read-only -->
-<div class="my-rating-5"></div>
+<div class="my-rating-7"></div>
 
 <pre class="pre-show prettyprint">
-$(".my-rating-5").starRating({
+&lt;div&gt; class="my-rating-7">&lt;/div&gt;
+</pre>
+
+
+<pre class="pre-show prettyprint">
+$(".my-rating-7").starRating({
   readOnly: true
 });
 </pre>
 
 <hr>
 
-<pre class="pre-show prettyprint">
-// unloading the plugin instance
-$(".my-rating").starRating('unload');
-</pre>
-
-<hr>
 <!-- example fullstars -->
+
+<h4>Use fullstars</h4>
+
+<div class="my-rating-8"></div>
 
 <pre class="pre-show prettyprint">
 // use full stars only
-&lt;div&gt; class="my-rating-6">&lt;/div&gt;
+&lt;div&gt; class="my-rating-8">&lt;/div&gt;
 </pre>
 
-<div class="my-rating-6"></div>
 
 <pre class="pre-show prettyprint">
-$(".my-rating-6").starRating({
+$(".my-rating-8").starRating({
   useFullStars: true
 });
 </pre>
 
 <hr>
 
+<h4>On hover event</h4>
+
 <pre class="pre-show prettyprint">
-// on hover event
-&lt;span&gt; class="my-rating-7">&lt;/span&gt;
+&lt;span&gt; class="my-rating-9">&lt;/span&gt;
 &lt;span&gt; class="live-rating">&lt;/span&gt;
 </pre>
 
 <!-- example using callback -->
-<span class="my-rating-7"></span>
+<span class="my-rating-9"></span>
 <span class="live-rating"></span>
 
 <pre class="pre-show prettyprint">
-  $(".my-rating-7").starRating({
+  $(".my-rating-9").starRating({
     initialRating: 3.5,
     disableAfterRate: false,
     onHover: function(currentIndex, currentRating, $el){
@@ -188,9 +198,20 @@ $(function() {
     starSize: 25
   });
 
-  // example grabing rating from markup, and custom colors
   $(".my-rating-2").starRating({
     totalStars: 5,
+    starSize: 30,
+    starShape: 'rounded',
+    emptyColor: 'lightgray',
+    hoverColor: 'salmon',
+    activeColor: 'crimson',
+    useGradient: false
+  });
+
+  // example grabing rating from markup, and custom colors
+  $(".my-rating-4").starRating({
+    totalStars: 5,
+    starShape: 'rounded',
     starSize: 40,
     emptyColor: 'lightgray',
     hoverColor: 'salmon',
@@ -199,7 +220,7 @@ $(function() {
   });
 
   // specify the gradient start and end for the selected stars
-  $(".my-rating-3").starRating({
+  $(".my-rating-5").starRating({
     starSize: 80,
     strokeWidth: 10,
     strokeColor: 'black',
@@ -210,10 +231,10 @@ $(function() {
     },
   });
 
-  $(".my-rating-4").starRating({
+  $(".my-rating-6").starRating({
     totalStars: 5,
     emptyColor: 'lightgray',
-    hoverColor: 'salmon',
+    hoverColor: 'slategray',
     activeColor: 'cornflowerblue',
     initialRating: 4,
     strokeWidth: 0,
@@ -224,16 +245,17 @@ $(function() {
     }
   });
 
-  $(".my-rating-5").starRating({
+  $(".my-rating-7").starRating({
     initialRating: 4,
-    readOnly: true
+    readOnly: true,
+    starShape: 'rounded'
   });
 
-  $(".my-rating-6").starRating({
+  $(".my-rating-8").starRating({
     useFullStars: true
   });
 
-  $(".my-rating-7").starRating({
+  $(".my-rating-9").starRating({
     initialRating: 3.5,
     disableAfterRate: false,
     onHover: function(currentIndex, currentRating, $el){
