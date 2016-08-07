@@ -83,6 +83,7 @@ http://nashio.github.io/star-rating-svg/demo
 | strokeWidth | 0 | Defines the thickness of the border, 0 is disabled |
 | strokeColor | black | Defines the color for the border |
 | starShape | 'straight' or 'rounded' | Change the star shape type |
+| baseUrl | false | when enabled (true), adds fixes issue of SVG and <base ...> |
 
 ## Methods
 
@@ -152,6 +153,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.1.1
+- Fixes issue when using SVG + tag <base>
 
 #### 1.1.0
 - Change the star type
