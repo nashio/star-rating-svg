@@ -155,7 +155,7 @@ Minified version
 ### Changelog
 
 #### 1.1.1
-- Fixes issue when using SVG + tag <base>
+- Fixes issue when using SVG + base tag
 
 #### 1.1.0
 - Change the star type
