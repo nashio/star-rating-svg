@@ -93,7 +93,7 @@ http://nashio.github.io/star-rating-svg/demo
 | setRating | 0 to max stars (int), round (Boolean) | Manually sets the rating  |
 | getRating | &nbsp; | Gets the current rating from instance |
 | resize | 1 to 200 | Resize the stars on the fly |
-| setReadOnly | Boolean | Disable hover activity manually |
+| setReadOnly | Boolean | Disable or enable stars manually |
 
 ```javascript
 // unload/destroy example
