@@ -264,7 +264,20 @@
           'height': newSize + 'px'
         });
       });
+    },
+
+    setReadOnly: function(flag) {
+      var _name = 'plugin_' + pluginName;
+      var $el = $(this);
+      var $plugin = $el.data(_name);
+      if(flag === true){
+        $plugin.$stars.off('mouseover mouseout click');
+      } else {
+        $plugin.settings.readOnly = false;
+        $plugin.addListeners();
+      }
     }
+
   };
 
 
