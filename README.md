@@ -4,7 +4,7 @@
 ###### A basic, yet flexible star rate jQuery plugin, using SVG.
 
 ###Features:
-* Doesn't use images
+* Doesn't use external images
 * Customize size
 * Customize colors
 * Use half or full stars
@@ -18,7 +18,7 @@
 * Unload option
 * **Change star shape (rounded or straight)**
 * **Resize stars**
-
+  
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.png)
 
@@ -93,9 +93,10 @@ http://nashio.github.io/star-rating-svg/demo
 | setRating | 0 to max stars (int), round (Boolean) | Manually sets the rating  |
 | getRating | &nbsp; | Gets the current rating from instance |
 | resize | 1 to 200 | Resize the stars on the fly |
+| setReadOnly | Boolean | Disable or enable stars manually |
 
 ```javascript
-// unload example
+// unload/destroy example
 $('your-selector').starRating('unload')
 // set rating example
 $('your-selector').starRating('setRating', 2.5)
@@ -105,6 +106,9 @@ $('your-selector').starRating('setRating', 2.8, true) // 3.0
 $('your-selector').starRating('getRating')
 // resize
 $('your-selector').starRating('resize', 50)
+// disable/enable stars manually
+$('.your-selector').starRating('setReadOnly', true);
+
 ```
 
 ## Callbacks
@@ -153,6 +157,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.2.0
+- Adds public method to disable & enable stars manually
 
 #### 1.1.1
 - Fixes issue when using SVG + base tag
