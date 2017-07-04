@@ -3,7 +3,7 @@
 
 ###### A basic, yet flexible star rate jQuery plugin, using SVG.
 
-###Features:
+### Features:
 * Doesn't use external images
 * Customize size
 * Customize colors
