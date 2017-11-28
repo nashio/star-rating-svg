@@ -18,7 +18,7 @@
 * Unload option
 * **Change star shape (rounded or straight)**
 * **Resize stars**
-  
+
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.png)
 
@@ -75,6 +75,7 @@ http://nashio.github.io/star-rating-svg/demo
 | emptyColor | lightgray | Color assigned to an empty star |
 | hoverColor | orange | Color assigned to hovered star |
 | activeColor | gold | Color assigned to active rated star |
+| ratedColor | crimson | Color assigned to manually rated star |
 | useGradient | true | Active stars will use gradient coloring |
 | | | To use this option you need to populate the object [starGradient] |
 | starGradient | {start: '#FEF7CD', end: '#FF9511'} | Define the star and end colors for the gradient |
