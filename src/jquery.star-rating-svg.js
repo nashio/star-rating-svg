@@ -1,5 +1,5 @@
 /*
- *  jQuery StarRatingSvg v1.1.0
+ *  jQuery StarRatingSvg v1.2.0
  *
  *  http://github.com/nashio/star-rating-svg
  *  Author: Ignacio Chavez
