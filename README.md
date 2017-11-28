@@ -3,7 +3,7 @@
 
 ###### A basic, yet flexible star rate jQuery plugin, using SVG.
 
-### Features:
+###Features:
 * Doesn't use external images
 * Customize size
 * Customize colors
@@ -158,6 +158,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.2.1
+- Adds color for manually rated stars 'ratedColor'
 
 #### 1.2.0
 - Adds public method to disable & enable stars manually
