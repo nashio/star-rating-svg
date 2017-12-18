@@ -42,15 +42,21 @@
 	// The actual plugin constructor
   var Plugin = function( element, options ) {
     var _rating;
+    var newRating;
+    var roundFn;
+
     this.element = element;
     this.$el = $(element);
     this.settings = $.extend( {}, defaults, options );
 
     // grab rating if defined on the element
     _rating = this.$el.data('rating') || this.settings.initialRating;
+
+    // round to the nearest half
+    roundFn = this.settings.forceRoundUp ? Math.ceil : Math.round;
+    newRating = (roundFn( _rating * 2 ) / 2).toFixed(1);
     this._state = {
-      // round to the nearest half
-      rating: (Math.round( _rating * 2 ) / 2).toFixed(1)
+      rating: newRating
     };
 
     // create unique id for stars

@@ -85,6 +85,7 @@ http://nashio.github.io/star-rating-svg/demo
 | strokeColor | black | Defines the color for the border |
 | starShape | 'straight' or 'rounded' | Change the star shape type |
 | baseUrl | false | when enabled (true), enables compatibility with the base tag in your head section |
+| forceRoundUp | false | if true, forces rounding the initial rating to the nearest upper half even if the value is closer to the lower (1.1 -> 1.5 rather than 1.1 -> 1.0) |
 
 ## Methods
 
