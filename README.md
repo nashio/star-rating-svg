@@ -70,6 +70,7 @@ http://nashio.github.io/star-rating-svg/demo
 |---|---|---|
 | totalStars  | 5  | Amount of stars to show  |
 | initialRating | 0 | Initial rating applied on load |
+| minRating | 0 | Specify the lowest rating |
 | starSize | 40 | width in pixels of each star |
 | useFullStars | false | rate using whole stars, if enabled, it doesn't use half-steps |
 | emptyColor | lightgray | Color assigned to an empty star |
@@ -159,6 +160,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.2.2
+- Specify the lowest rating with 'minRating'
 
 #### 1.2.1
 - Adds color for manually rated stars 'ratedColor'

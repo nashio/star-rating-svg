@@ -127,6 +127,7 @@
       var $target = $(e.currentTarget);
       var width = $target.width();
       var side = $(e.target).attr('data-side');
+      var minRating = this.settings.minRating;
 
       // hovered outside the star, calculate by pixel instead
       side = (!side) ? this.getOffsetByPixel(e, $target, width) : side;
@@ -137,6 +138,9 @@
 
       // pointer is way to the left, rating should be none
       index = ( index < 0.5 && (e.offsetX < width / 4) ) ? -1 : index;
+
+      // force minimum rating
+      index = ( minRating && minRating <= this.settings.totalStars && index < minRating ) ? minRating - 1 : index;
       return index;
     },
 

@@ -112,6 +112,7 @@ $(".my-rating-6").starRating({
   initialRating: 4,
   strokeWidth: 0,
   useGradient: false,
+  minRating: 1,
   callback: function(currentRating, $el){
       alert('rated ', currentRating);
       console.log('DOM element ', $el);
@@ -239,6 +240,7 @@ $(function() {
     initialRating: 4,
     strokeWidth: 0,
     useGradient: false,
+    minRating: 1,
     callback: function(currentRating, $el){
       alert('rated ' +  currentRating);
       console.log('DOM Element ', $el);
