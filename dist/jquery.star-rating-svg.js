@@ -160,9 +160,6 @@
       var rightClass;
       var s = this.settings;
 
-      // get color levels
-      var ratedColors = s.ratedColors && s.ratedColors.length ? s.ratedColors : undefined;
-
       $.each(this.$stars, function(index, star){
         $polygonLeft = $(star).find('[data-side="left"]');
         $polygonRight = $(star).find('[data-side="right"]');
@@ -171,39 +168,53 @@
         // has another half rating, add half star
         leftClass = ( index - endIndex === 0.5 ) ? stateClass : leftClass;
 
-        $polygonLeft.attr('class', 'svg-'  + leftClass + '-' + this._uid + '-' + index);
-        $polygonRight.attr('class', 'svg-'  + rightClass + '-' + this._uid + '-' + index);
+        $polygonLeft.attr('class', 'svg-'  + leftClass + '-' + this._uid);
+        $polygonRight.attr('class', 'svg-'  + rightClass + '-' + this._uid);
+
+        // get color for level
+        var ratedColorsIndex = endIndex >= 0 ? Math.ceil(endIndex) : 0;
+
+        var ratedColor;
+        if (s.ratedColors && s.ratedColors.length && s.ratedColors[ratedColorsIndex]) {
+          ratedColor = s.ratedColors[ratedColorsIndex];
+        } else {
+          ratedColor = this._defaults.ratedColor;
+        }
+
+        // only override colors when ratedColors is defined
+        if (stateClass === 'rated' && endIndex > -1) {
+          // limit to painting only to rated stars, and specific case for half star
+          if (index <= Math.ceil(endIndex) || (index < 1 && endIndex < 0)) {
+            $polygonLeft.attr('style', 'fill:'+ratedColor);
+          }
+          if (index <= endIndex) {
+            $polygonRight.attr('style', 'fill:'+ratedColor);
+          }
+        }
       }.bind(this));
     },
 
     renderMarkup: function () {
       var s = this.settings;
-      var d = this._defaults;
       var baseUrl = s.baseUrl ? location.href.split('#')[0] : '';
-      var ratedColors = s.ratedColors && s.ratedColors.length ? s.ratedColors : undefined;
 
-      function starMarkup(self, index) {
-        var defaultRatedColor = s.ratedColor || d.ratedColor;
-        var ratedColor = ratedColors && ratedColors[index] ? ratedColors[index] : defaultRatedColor;
+      // inject an svg manually to have control over attributes
+      var star = '<div class="jq-star" style="width:' + s.starSize+ 'px;  height:' + s.starSize + 'px;"><svg version="1.0" class="jq-star-svg" shape-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" ' + this.getSvgDimensions(s.starShape) +  ' stroke-width:' + s.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + this._uid + '{fill:url(' + baseUrl + '#' + this._uid + '_SVGID_1_);}.svg-hovered-' + this._uid + '{fill:url(' + baseUrl + '#' + this._uid + '_SVGID_2_);}.svg-active-' + this._uid + '{fill:url(' + baseUrl + '#' + this._uid + '_SVGID_3_);}.svg-rated-' + this._uid + '{fill:' + s.ratedColor + ';}</style>' +
 
-        // inject an svg manually to have control over attributes
-        return '<div class="jq-star" style="width:' + s.starSize+ 'px;  height:' + s.starSize + 'px;"><svg version="1.0" class="jq-star-svg" shape-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" ' + self.getSvgDimensions(s.starShape) +  ' stroke-width:' + s.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + self._uid + '-' + index +' {fill:url(' + baseUrl + '#' + self._uid + '_SVGID_1_);}.svg-hovered-' + self._uid + '-' + index + '{fill:url(' + baseUrl + '#' + self._uid + '_SVGID_2_);}.svg-active-' + self._uid + '-' + index + ' {fill:url(' + baseUrl + '#' + self._uid + '_SVGID_3_);}.svg-rated-' + self._uid + '-' + index + ' {fill:' + ratedColor + ';}</style>' +
-
-        self.getLinearGradient(self._uid + '_SVGID_1_', s.emptyColor, s.emptyColor, s.starShape) +
-        self.getLinearGradient(self._uid + '_SVGID_2_', s.hoverColor, s.hoverColor, s.starShape) +
-        self.getLinearGradient(self._uid + '_SVGID_3_', s.starGradient.start, s.starGradient.end, s.starShape) +
-        self.getVectorPath(self._uid, {
-          starShape: s.starShape,
-          strokeWidth: s.strokeWidth,
-          strokeColor: s.strokeColor
-        } ) +
-            '</svg></div>';
-      }
+      this.getLinearGradient(this._uid + '_SVGID_1_', s.emptyColor, s.emptyColor, s.starShape) +
+      this.getLinearGradient(this._uid + '_SVGID_2_', s.hoverColor, s.hoverColor, s.starShape) +
+      this.getLinearGradient(this._uid + '_SVGID_3_', s.starGradient.start, s.starGradient.end, s.starShape) +
+      this.getVectorPath(this._uid, {
+        starShape: s.starShape,
+        strokeWidth: s.strokeWidth,
+        strokeColor: s.strokeColor
+      } ) +
+      '</svg></div>';
 
       // inject svg markup
       var starsMarkup = '';
       for( var i = 0; i < s.totalStars; i++){
-        starsMarkup += starMarkup(this, i);
+        starsMarkup += star;
       }
       this.$el.append(starsMarkup);
       this.$stars = this.$el.find('.jq-star');
@@ -277,7 +288,7 @@
       var $stars = $starSet.$stars;
 
       if(newSize <= 1 || newSize > 200) {
-        console.log('star size out of bounds');
+        console.error('star size out of bounds');
         return;
       }
 
