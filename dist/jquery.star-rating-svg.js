@@ -158,6 +158,10 @@
       var $polygonRight;
       var leftClass;
       var rightClass;
+      var s = this.settings;
+
+      // get color levels
+      var ratedColors = s.ratedColors && s.ratedColors.length ? s.ratedColors : undefined;
 
       $.each(this.$stars, function(index, star){
         $polygonLeft = $(star).find('[data-side="left"]');
@@ -167,33 +171,39 @@
         // has another half rating, add half star
         leftClass = ( index - endIndex === 0.5 ) ? stateClass : leftClass;
 
-        $polygonLeft.attr('class', 'svg-'  + leftClass + '-' + this._uid);
-        $polygonRight.attr('class', 'svg-'  + rightClass + '-' + this._uid);
-
+        $polygonLeft.attr('class', 'svg-'  + leftClass + '-' + this._uid + '-' + index);
+        $polygonRight.attr('class', 'svg-'  + rightClass + '-' + this._uid + '-' + index);
       }.bind(this));
     },
 
     renderMarkup: function () {
       var s = this.settings;
+      var d = this._defaults;
       var baseUrl = s.baseUrl ? location.href.split('#')[0] : '';
+      var ratedColors = s.ratedColors && s.ratedColors.length ? s.ratedColors : undefined;
 
-      // inject an svg manually to have control over attributes
-      var star = '<div class="jq-star" style="width:' + s.starSize+ 'px;  height:' + s.starSize + 'px;"><svg version="1.0" class="jq-star-svg" shape-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" ' + this.getSvgDimensions(s.starShape) +  ' stroke-width:' + s.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + this._uid + '{fill:url(' + baseUrl + '#' + this._uid + '_SVGID_1_);}.svg-hovered-' + this._uid + '{fill:url(' + baseUrl + '#' + this._uid + '_SVGID_2_);}.svg-active-' + this._uid + '{fill:url(' + baseUrl + '#' + this._uid + '_SVGID_3_);}.svg-rated-' + this._uid + '{fill:' + s.ratedColor + ';}</style>' +
+      function starMarkup(self, index) {
+        var defaultRatedColor = s.ratedColor || d.ratedColor;
+        var ratedColor = ratedColors && ratedColors[index] ? ratedColors[index] : defaultRatedColor;
 
-      this.getLinearGradient(this._uid + '_SVGID_1_', s.emptyColor, s.emptyColor, s.starShape) +
-      this.getLinearGradient(this._uid + '_SVGID_2_', s.hoverColor, s.hoverColor, s.starShape) +
-      this.getLinearGradient(this._uid + '_SVGID_3_', s.starGradient.start, s.starGradient.end, s.starShape) +
-      this.getVectorPath(this._uid, {
-        starShape: s.starShape,
-        strokeWidth: s.strokeWidth,
-        strokeColor: s.strokeColor
-      } ) +
-      '</svg></div>';
+        // inject an svg manually to have control over attributes
+        return '<div class="jq-star" style="width:' + s.starSize+ 'px;  height:' + s.starSize + 'px;"><svg version="1.0" class="jq-star-svg" shape-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" ' + self.getSvgDimensions(s.starShape) +  ' stroke-width:' + s.strokeWidth + 'px;" xml:space="preserve"><style type="text/css">.svg-empty-' + self._uid + '-' + index +' {fill:url(' + baseUrl + '#' + self._uid + '_SVGID_1_);}.svg-hovered-' + self._uid + '-' + index + '{fill:url(' + baseUrl + '#' + self._uid + '_SVGID_2_);}.svg-active-' + self._uid + '-' + index + ' {fill:url(' + baseUrl + '#' + self._uid + '_SVGID_3_);}.svg-rated-' + self._uid + '-' + index + ' {fill:' + ratedColor + ';}</style>' +
+
+        self.getLinearGradient(self._uid + '_SVGID_1_', s.emptyColor, s.emptyColor, s.starShape) +
+        self.getLinearGradient(self._uid + '_SVGID_2_', s.hoverColor, s.hoverColor, s.starShape) +
+        self.getLinearGradient(self._uid + '_SVGID_3_', s.starGradient.start, s.starGradient.end, s.starShape) +
+        self.getVectorPath(self._uid, {
+          starShape: s.starShape,
+          strokeWidth: s.strokeWidth,
+          strokeColor: s.strokeColor
+        } ) +
+            '</svg></div>';
+      }
 
       // inject svg markup
       var starsMarkup = '';
       for( var i = 0; i < s.totalStars; i++){
-        starsMarkup += star;
+        starsMarkup += starMarkup(this, i);
       }
       this.$el.append(starsMarkup);
       this.$stars = this.$el.find('.jq-star');

@@ -16,8 +16,9 @@
 * onHover and onLeave events
 * Locked / Read-only mode
 * Unload option
-* **Change star shape (rounded or straight)**
-* **Resize stars**
+  Change star shape (rounded or straight)
+* Resize stars
+* **Change indiviual star color when rated**
 
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.png)
@@ -77,6 +78,7 @@ http://nashio.github.io/star-rating-svg/demo
 | hoverColor | orange | Color assigned to hovered star |
 | activeColor | gold | Color assigned to active rated star |
 | ratedColor | crimson | Color assigned to manually rated star |
+| ratedColors | ['#333333', '#555555', '#888888', '#AAAAAA', '#CCCCCC'] | colors assigned to each level of rated stars |
 | useGradient | true | Active stars will use gradient coloring |
 | | | To use this option you need to populate the object [starGradient] |
 | starGradient | {start: '#FEF7CD', end: '#FF9511'} | Define the star and end colors for the gradient |
@@ -160,6 +162,9 @@ Minified version
 #### [dist/](https://github.com/nashio/star-rating-svg/tree/master/dist "build files")
 
 ### Changelog
+
+#### 1.3.0
+- Define rated star colors per level by using an array of colors
 
 #### 1.2.2
 - Specify the lowest rating with 'minRating'

@@ -185,6 +185,30 @@ $(".my-rating-8").starRating({
 </pre>
 
 
+<h4>rating level colors</h4>
+
+<!-- example using level colors -->
+<div class="my-rating-10"></div>
+
+<pre class="pre-show prettyprint">
+&lt;div&gt; class="my-rating-10">&lt;/div&gt;
+</pre>
+
+
+
+<pre class="pre-show prettyprint">
+// specify the color per rating level
+$(".my-rating-10").starRating({
+  starSize: 80,
+  strokeWidth: 9,
+  strokeColor: 'black',
+  ratedColors: ['#e2c181', '#ffa700', '#c4573e', '#9a321a', '#5e1e0f']
+  initialRating: 2,
+});
+</pre>
+
+<hr>
+
 <div class="options">
     See options @ <a href="https://github.com/nashio/star-rating-svg/">github</a>
 </div>
@@ -240,7 +264,7 @@ $(function() {
     initialRating: 4,
     strokeWidth: 0,
     useGradient: false,
-    minRating: 1,
+    minRating: 2,
     callback: function(currentRating, $el){
       alert('rated ' +  currentRating);
       console.log('DOM Element ', $el);
@@ -268,6 +292,14 @@ $(function() {
       console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
       $('.live-rating').text(currentRating);
     }
+  });
+
+  $(".my-rating-10").starRating({
+    initialRating: 2,
+    starSize: 80,
+    strokeWidth: 9,
+    strokeColor: 'black',
+    ratedColors: ['#e2c181', '#ffa700', '#c4573e', '#9a321a', '#5e1e0f']
   });
 
 });
