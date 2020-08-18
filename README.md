@@ -18,7 +18,7 @@
 * Unload option
   Change star shape (rounded or straight)
 * Resize stars
-* **Change rated star colors by level
+* **Change rated star colors by level**
 
 
 <br/>![](http://ignaciochavez.com/files/star-rating/stars-rating-demo.png)
