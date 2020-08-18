@@ -18,6 +18,14 @@ hr {
 
 .logo {
 	width: 300px;
+	text-align: center;
+	display: block;
+	position: relative;
+	margin: auto;
+}
+
+.logo img {
+	width: 100%;
 }
 
 iframe {
@@ -32,6 +40,7 @@ iframe {
 
 .content {
     width: 640px;
+    margin: auto;
 }
 
 .live-rating {
