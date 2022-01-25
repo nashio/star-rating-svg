@@ -52,6 +52,9 @@
     // grab rating if defined on the element
     _rating = this.$el.data('rating') || this.settings.initialRating;
 
+    // grab readOnly if defined on the element
+    this.settings.readOnly = this.$el.data('readonly') || this.settings.readOnly;
+
     // round to the nearest half
     roundFn = this.settings.forceRoundUp ? Math.ceil : Math.round;
     newRating = (roundFn( _rating * 2 ) / 2).toFixed(1);
